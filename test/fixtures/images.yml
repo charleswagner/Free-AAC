@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  picture_file_name: MyString
+  picture_file_size: 1
+  picture_file_type: MyString
+  word_id: 1
+  votes: 1
+
+two:
+  picture_file_name: MyString
+  picture_file_size: 1
+  picture_file_type: MyString
+  word_id: 1
+  votes: 1
