@@ -1,20 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>English:</b>
-  <%= @word.english %>
-</p>
+<% if @word.images.blank? %>
+	<h3>
+		<span class="highlight">
+			This word needs an image in order to be included in Free ACC
+		</span>
+	</h3>
+<% end %>
 
-<p>
-  <b>Spanish:</b>
-  <%= @word.spanish %>
-</p>
+<%= link_to "Add an image", new_word_image_path(@word)%>
 
-<p>
-  <b>Frequency:</b>
-  <%= @word.frequency %>
-</p>
+<h1>
+	<%=  @word.english  %>
+</h1>
+<%= link_to 'Edit', edit_word_path(@word) %>
 
 
-<%= link_to 'Edit', edit_word_path(@word) %> |
-<%= link_to 'Back', words_path %>
+<% @word.images.each do |image| %>
+	test
+<% end %>
+
+
+

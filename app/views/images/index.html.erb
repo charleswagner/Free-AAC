@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<% if @word.images.blank? %>
+	<h3>
+		<span class="highlight">
+			This word needs an image in order to be included in Free ACC
+		</span>
+	</h3>
+<% end %>
+
+<h1>
+	<%=  @word.english  %>
+</h1>
+<%= link_to 'Edit', edit_word_path(@word) %>
+
+<hr/>
+
+<h4>
+	<%=  @word.english  %>'s Images | <%= link_to "Add your image", new_word_image_path(@word)%>
+</h4>
+
+
+<table>
+
+
+<% @word.images.each do |image| %>
+  <tr>
+    <td>
+		<%= link_to(image_tag('upvote.png'), upvote_image_path(image), :method => :put) %> <br/>
+		<%= link_to(image_tag('downvote.png'), downvote_image_path(image), :method => :put) %>
+	</td>	
+    <td><%= image_tag(image.picture(:thumbnail)) %></td>
+
+    <td><%= link_to 'Edit', edit_image_path(image) %></td>
+    <td><%= link_to 'Destroy', image, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+

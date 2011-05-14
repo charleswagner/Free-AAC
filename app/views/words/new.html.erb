@@ -1,5 +1,33 @@
 <h1>New word</h1>
 
-<%= render 'form' %>
 
-<%= link_to 'Back', words_path %>
+<h3>
+	<span class="highlight">
+		What word do you want to add?
+	</span>
+</h3>
+
+
+<% form_tag(search_words_path, :method => :get) do %>
+	<%= text_field_tag :word, params[:word], :class => 'big_input'%>
+	<%= submit_tag "Search", :disable_with => "Searching..." %>
+<% end %>
+
+
+
+<% if params[:word] && @word.new_record? %>
+<h3>
+	<span class="highlight">
+		Congratulations, looks like you found a word that has not been added. 
+	</span>
+</h3>
+
+	<%= render 'form' %>
+<% elsif !params[:word].blank?  %>
+<h3>
+<span class="highlight">
+	
+</span>
+</h3>
+<p>Looks like we already have some progress on <%= link_to @word.english, word_images_path(@word)  %></p>
+<% end %>

@@ -1,27 +1,3 @@
-<h1>Listing words</h1>
-
-<table>
-  <tr>
-    <th>English</th>
-    <th>Spanish</th>
-    <th>Frequency</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @words.each do |word| %>
-  <tr>
-    <td><%= word.english %></td>
-    <td><%= word.spanish %></td>
-    <td><%= word.frequency %></td>
-    <td><%= link_to 'Show', word %></td>
-    <td><%= link_to 'Edit', edit_word_path(word) %></td>
-    <td><%= link_to 'Destroy', word, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+	<%= image_tag word.images.first.picture(:small), :size => '100x100' %>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Word', new_word_path %>

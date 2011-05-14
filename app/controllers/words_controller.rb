@@ -1,8 +1,19 @@
 class WordsController < ApplicationController
   # GET /words
   # GET /words.xml
+  
+  def search
+    @word = Word.find(:first, :conditions => ['english=?', params[:word]])
+    if params[:word] && !@word
+      @word = Word.new
+      @word.english = params[:word]
+    end
+    render :action => 'new'
+  end
+  
+  
   def index
-    @words = Word.all
+    @words = Word.where('published=?', true)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -41,16 +52,16 @@ class WordsController < ApplicationController
   # POST /words.xml
   def create
     @word = Word.new(params[:word])
-
-    respond_to do |format|
-      if @word.save
-        format.html { redirect_to(@word, :notice => 'Word was successfully created.') }
-        format.xml  { render :xml => @word, :status => :created, :location => @word }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @word.errors, :status => :unprocessable_entity }
+  
+      respond_to do |format|
+        if @word.save
+          format.html { redirect_to(@word, :notice => 'Word was successfully created.') }
+          format.xml  { render :xml => @word, :status => :created, :location => @word }
+        else
+          format.html { render :action => "new" }
+          format.xml  { render :xml => @word.errors, :status => :unprocessable_entity }
+        end
       end
-    end
   end
 
   # PUT /words/1
@@ -60,7 +71,7 @@ class WordsController < ApplicationController
 
     respond_to do |format|
       if @word.update_attributes(params[:word])
-        format.html { redirect_to(@word, :notice => 'Word was successfully updated.') }
+        format.html { redirect_to(word_images_path(@word), :notice => 'Word was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

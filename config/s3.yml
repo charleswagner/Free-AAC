@@ -1,0 +1,9 @@
+development:
+  bucket: freeacc
+  access_key_id: AKIAJYR45FAIMYKDDEQQ
+  secret_access_key: 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
+
+production:
+  bucket: freeacc
+  access_key_id: AKIAJYR45FAIMYKDDEQQ
+  secret_access_key: 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

@@ -12,18 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :english %><br />
-    <%= f.text_field :english %>
+    <%= f.text_field :english, :class => 'big_input'%> <%= f.submit 'Submit', :disable_with => "Submitting..."%>
   </div>
-  <div class="field">
-    <%= f.label :spanish %><br />
-    <%= f.text_field :spanish %>
-  </div>
-  <div class="field">
-    <%= f.label :frequency %><br />
-    <%= f.text_field :frequency %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
 <% end %>
