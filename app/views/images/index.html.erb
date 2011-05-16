@@ -1,39 +1,92 @@
-<p id="notice"><%= notice %></p>
+<div id="contribute">
+	
 
-<% if @word.images.blank? %>
-	<h3>
-		<span class="highlight">
-			This word needs an image in order to be included in Free ACC
-		</span>
-	</h3>
-<% end %>
 
-<h1>
-	<%=  @word.english  %>
-</h1>
-<%= link_to 'Edit', edit_word_path(@word) %>
 
-<hr/>
 
-<h4>
-	<%=  @word.english  %>'s Images | <%= link_to "Add your image", new_word_image_path(@word)%>
-</h4>
 
+
+	<div id="successful_submissions">
+			<div class="content">
+
+
+	
+	
+		
+		<h1 class="black">
+			ACC Word: <%=  @word.english.capitalize  %>  | <%= link_to "Add your image", new_word_image_path(@word)%>
+		</h1>
+		
+			<% if @word.images.blank? %>
+				<h3>
+					<span class="highlight">
+						This word needs an image in order to be included in Free ACC
+					</span>
+				</h3>
+			<% else %>
 
 <table>
+		
+		  <tr>
+		    <td>
+				<%= link_to(image_tag('upvote.png'), upvote_image_path(@word.images.first), :method => :put) %> 
+				<div class="vote_count">
+					<%= @word.images.first.votes %>
+				</div>
+				<%= link_to(image_tag('downvote.png'), downvote_image_path(@word.images.first), :method => :put) %>
+			</td>	
+		    <td><%= image_tag(@word.images.first.picture(:medium), :size => '200x200') %></td>
+
+		    <td><%= image_tag('missing.png')%> 
+			
+			</td>
+			
+			 <td>
+
+			    <td>
+					<p><b>Artist:</b> Anonymous<br/>
+				<b>Added:</b> <%= @word.images.first.created_at %></p> 
+
+				</td>
+
+		  </tr>
+		
+		</table>
+<hr/>
+
+	<table>
+		
+	
+
+	<% @word.images.each do |image| %>
+	<% unless @word.images.first == image %>
+	  <tr>
+	    <td>
+			<%= link_to(image_tag('upvote.png'), upvote_image_path(image), :method => :put) %> 
+			<div class="vote_count">
+				<%= image.votes%>
+			</div>
+			<%= link_to(image_tag('downvote.png'), downvote_image_path(image), :method => :put) %>
+		</td>	
+	    <td><%= image_tag(image.picture(:medium), :size => '200x200') %></td>
+
+	    <td><%= image_tag('missing.png')%> <br/>
+		
+		</td>
+		<td>
+		<p><b>Artist:</b> Anonymous <br/>
+		<b>Added:</b><%= image.created_at %></p>
+		
+		</td>
+	    
+
+	  </tr>
+	<% end %>
+	<% end %>
+	</table>
+	<% end %>
+	</div>
+	</div>
 
 
-<% @word.images.each do |image| %>
-  <tr>
-    <td>
-		<%= link_to(image_tag('upvote.png'), upvote_image_path(image), :method => :put) %> <br/>
-		<%= link_to(image_tag('downvote.png'), downvote_image_path(image), :method => :put) %>
-	</td>	
-    <td><%= image_tag(image.picture(:thumbnail)) %></td>
-
-    <td><%= link_to 'Edit', edit_image_path(image) %></td>
-    <td><%= link_to 'Destroy', image, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
+</div>

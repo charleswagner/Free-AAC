@@ -1,33 +1,77 @@
-<h1>New word</h1>
+
+<div id="contribute">
+
+	<div class="pic">
+		<img alt="Contribute"  src="/images/contribute.png" />
+	</div>
+	<div class="desc">
+		Create and upload your original artwork and the community votes on which image best represents the word.
+	</div>
+	<br style="clear:both;"/>
+	
+	<hr/>
+	<div class="content">
+	
 
 
-<h3>
-	<span class="highlight">
-		What word do you want to add?
-	</span>
-</h3>
+	<h1>Step 1) Review And Understand Successful Submissions</h1>		
 
+	<h2>
+		Here are some recent successful submissions. Note the images clearly represent their words and do not contain offensive material.
+	</h2>
+	
+	<div id="successful_submissions">
+		<% @words.each do |word| %>
+			<%= image_tag word.images.first.picture(:medium), :size => '200x200' %>
+		<% end %>
+	</div>
+
+	<h1>Step 2) Be An Artist</h1>		
+
+	<h2>
+		Use a drawing program or take a picture of your original artwork.
+	</h2>
+
+	<h1>Step 3) Create An Account To Organize Your Hard Work</h1>
+
+	<h2>
+		It is not necessary to create an account; however, you can create an account to organize all the images you upload to the community and show off your work. <%= link_to "Create An Account", {} %>
+	</h2>
+
+
+	<h1>Step 4) Find Or Create The Word Of Your Image</h1>
+	
+
+<h2>
 
 <% form_tag(search_words_path, :method => :get) do %>
+	Your word: 
 	<%= text_field_tag :word, params[:word], :class => 'big_input'%>
 	<%= submit_tag "Search", :disable_with => "Searching..." %>
-<% end %>
+<% end %></h2>
+
+<h1>Step 5) Create Or Choose The Word</h1>
 
 
+<% if params[:word] && @word && @word.new_record? %>
 
-<% if params[:word] && @word.new_record? %>
-<h3>
-	<span class="highlight">
-		Congratulations, looks like you found a word that has not been added. 
-	</span>
-</h3>
+<h2>
+		Congratulations, looks like you found a word that has not been added. After you create this word by clicking submit you will be able to add and image.
+</h2>
 
 	<%= render 'form' %>
 <% elsif !params[:word].blank?  %>
-<h3>
-<span class="highlight">
-	
-</span>
-</h3>
-<p>Looks like we already have some progress on <%= link_to @word.english, word_images_path(@word)  %></p>
+<h2>Looks like we already have some progress on <%= link_to @word.english, word_images_path(@word)  %></h2>
+<% else %>
+<h2>
+	A link will appear after word is found or created.
+</h2>
 <% end %>
+
+
+
+
+</div>
+
+
+</div>

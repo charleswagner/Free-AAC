@@ -1,8 +1,11 @@
 <div id="header">
-	<div class="content">
-		<h1>
-			<%= link_to_unless_current "Free ACC", root_url %> | 
-			<%= link_to_unless_current 'New Word', new_word_path %>
-		</h1>
-	</div>
+	<div id="start">
+		<div class="logo">
+			<%= link_to(image_tag('logo.png'), root_url)%>
+		</div>
+		<div class="start">
+			<a href=""><img alt="Free ACC Logo" src="/images/start.png" /></a>
+		</div>
+		<br style="clear:both;"/>
+	</div>	
 </div>

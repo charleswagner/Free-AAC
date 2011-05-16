@@ -59,3 +59,10 @@ div.field, div.actions {
 .big_input {font-size:20px;padding:4px;}
 
 img {border:none;}
+
+h1 {color:aliceblue;}
+
+#successful_submissions {border:1px solid black;background-color:white;}
+#successful_submissions img {margin:5px;border:1px solid blue;padding:2px;}
+
+.black {color:black;}

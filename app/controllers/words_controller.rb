@@ -2,9 +2,15 @@ class WordsController < ApplicationController
   # GET /words
   # GET /words.xml
   
+  before_filter :get_words
+  
+  def get_words
+    @words = Word.where('published=?', true).order('created_at DESC').limit(4)
+  end
+  
   def search
     @word = Word.find(:first, :conditions => ['english=?', params[:word]])
-    if params[:word] && !@word
+    if !params[:word].blank? && !@word
       @word = Word.new
       @word.english = params[:word]
     end
@@ -35,8 +41,7 @@ class WordsController < ApplicationController
   # GET /words/new
   # GET /words/new.xml
   def new
-    @word = Word.new
-
+    @word = Word.new    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @word }
@@ -55,7 +60,7 @@ class WordsController < ApplicationController
   
       respond_to do |format|
         if @word.save
-          format.html { redirect_to(@word, :notice => 'Word was successfully created.') }
+          format.html { redirect_to(word_images_path(@word), :notice => 'Word was successfully created.') }
           format.xml  { render :xml => @word, :status => :created, :location => @word }
         else
           format.html { render :action => "new" }
