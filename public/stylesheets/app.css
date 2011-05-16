@@ -62,7 +62,7 @@ img {border:none;}
 
 h1 {color:aliceblue;}
 
-#successful_submissions {border:1px solid black;background-color:white;}
+#successful_submissions {background-color:white;border:2px solid black;}
 #successful_submissions img {margin:5px;padding:2px;}
 
 .black {color:black;}

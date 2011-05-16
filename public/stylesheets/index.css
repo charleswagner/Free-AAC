@@ -5,6 +5,7 @@
   	border:5px solid black;
 }
 
+
 #contribute, #learn_more, #see_how_it_works   {
     border:3px solid aliceblue;
    	margin:auto;
@@ -12,6 +13,12 @@
 	background-color:#6983bc;
 	padding:25px;
 	width:900px;	
+}
+
+#start, #contribute, #learn_more, #see_how_it_works, #successful_submissions  {
+	-moz-border-radius: 10px; /* Firefox */
+	 -webkit-border-radius: 10px; /* Safari, Chrome */
+	 border-radius: 10px; /* CSS3 */
 }
 
 .pic {

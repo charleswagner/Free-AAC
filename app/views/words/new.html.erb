@@ -33,7 +33,7 @@
 					<div class="vote_count">
 					<%= link_to(image_tag('upvote.png'), upvote_image_path(image), :method => :put) %> <br/>
 					
-						<%= image.votes%> <br/>
+						<%= image.votes%> Votes <br/>
 
 					<%= link_to(image_tag('downvote.png'), downvote_image_path(image), :method => :put) %>
 					</div>
@@ -45,7 +45,7 @@
 				</td>
 				<td>
 				<p><b>Artist:</b> Anonymous <br/>
-				<b>Added:</b><%= image.created_at %></p>
+				<b>Added:</b> <%= image.created_at.strftime('%B %d, %Y')  %></p>
 
 				</td>
 
@@ -63,14 +63,14 @@
 		Use a drawing program or take a picture of your original artwork.
 	</h2>
 
-	<h1>Step 3) Create An Account To Organize Your Hard Work</h1>
+	<h1>Step 3) <%= link_to "Create An Account", {} %> To Organize Your Hard Work</h1>
 
 	<h2>
-		It is not necessary to create an account; however, you can create an account to organize all the images you upload to the community and show off your work. <%= link_to "Create An Account", {} %>
+		It is not necessary to create an account; however, you can create an account to organize all the images you upload to the community and show off your work.
 	</h2>
 
 
-	<h1>Step 4) Find Or Create The Word Of Your Image</h1>
+	<h1>Step 4) Search For The Word Of Your Image</h1>
 	
 
 <h2>
@@ -81,7 +81,7 @@
 	<%= submit_tag "Search", :disable_with => "Searching..." %>
 <% end %></h2>
 
-<h1>Step 5) Create Or Choose The Word</h1>
+<h1>Step 5) Search Results</h1>
 
 
 <% if params[:word] && @word && @word.new_record? %>
