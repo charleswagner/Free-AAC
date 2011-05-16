@@ -34,7 +34,7 @@ $size = filesize($filename);
 
 header('Content-type: audio/mpeg');
 header('Content-length: ' . $size);
-header('Content-Disposition: filename='.$filename);
+header('Content-Disposition: filename="'.$phrase.'.mp3"');
 header('X-Pad: avoid browser bug');
 Header('Cache-Control: no-cache');
 
@@ -47,4 +47,3 @@ fwrite($fh, unlink($filename)."\n");
 $fclose($fh);
 
 ?>
-

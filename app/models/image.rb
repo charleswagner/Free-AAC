@@ -1,7 +1,11 @@
 class Image < ActiveRecord::Base
 
   belongs_to :word
-  
+
+  # if image is not a square then tell user to upload a square??
+  #   within %10 and make sure it is kinda big (400 +) ???
+
+
   has_attached_file :picture, 
                     :styles => {
                                 :xlarge => "400x400>",
