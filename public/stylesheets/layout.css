@@ -34,4 +34,10 @@ body {
 
 .content {padding:10px;}
 
-.vote_count {padding:15px;font-size:25px;text-align:center;}
+.vote_count {padding:5px 15px 5px 15px;font-size:25px;text-align:center;}
+
+table
+{
+border-collapse:collapse;
+}
+table {width:100%;}

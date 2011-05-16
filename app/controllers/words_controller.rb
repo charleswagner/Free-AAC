@@ -2,10 +2,10 @@ class WordsController < ApplicationController
   # GET /words
   # GET /words.xml
   
-  before_filter :get_words
+  before_filter :get_word
   
-  def get_words
-    @words = Word.where('published=?', true).order('created_at DESC').limit(4)
+  def get_word
+    @example_word = Word.find_by_english('toast')
   end
   
   def search

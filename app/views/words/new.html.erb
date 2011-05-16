@@ -17,13 +17,44 @@
 	<h1>Step 1) Review And Understand Successful Submissions</h1>		
 
 	<h2>
-		Here are some recent successful submissions. Note the images clearly represent their words and do not contain offensive material.
+		Here are some recent successful submissions for <%= @example_word.english %>. Note the images clearly represent their words and do not contain offensive material.
 	</h2>
 	
 	<div id="successful_submissions">
-		<% @words.each do |word| %>
-			<%= image_tag word.images.first.picture(:medium), :size => '200x200' %>
-		<% end %>
+	<div class="content">
+			<table>
+
+
+
+			<% @example_word.images.each do |image| %>
+
+			  <tr style="background-color:<%= cycle('white', '#EBDDE2')%>">
+			    <td>
+					<div class="vote_count">
+					<%= link_to(image_tag('upvote.png'), upvote_image_path(image), :method => :put) %> <br/>
+					
+						<%= image.votes%> <br/>
+
+					<%= link_to(image_tag('downvote.png'), downvote_image_path(image), :method => :put) %>
+					</div>
+				</td>	
+			    <td><%= image_tag(image.picture(:medium), :size => '200x200') %></td>
+
+			    <td><%= image_tag('missing.png')%> <br/>
+
+				</td>
+				<td>
+				<p><b>Artist:</b> Anonymous <br/>
+				<b>Added:</b><%= image.created_at %></p>
+
+				</td>
+
+
+			  </tr>
+
+			<% end %>
+			</table>
+	</div>
 	</div>
 
 	<h1>Step 2) Be An Artist</h1>		
