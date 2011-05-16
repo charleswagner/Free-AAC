@@ -1,0 +1,8 @@
+This service uses LAME and espeak and must be installed on the server.
+
+http://espeak.sourceforge.net/
+http://lame.sourceforge.net/
+
+
+
+

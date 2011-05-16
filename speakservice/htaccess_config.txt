@@ -1,0 +1,9 @@
+
+In the directory you deploy the PHP file add the following .htaccess file
+
+Options +FollowSymlinks
+RewriteEngine on
+RewriteRule ^(.+)\.mp3$ index.php [NC]
+
+
+
