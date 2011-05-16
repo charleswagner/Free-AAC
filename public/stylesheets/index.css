@@ -1,0 +1,32 @@
+#start {
+	background-color:black;
+ 	width:949px;	
+    margin:auto;
+  	border:5px solid black;
+}
+
+#contribute, #learn_more, #see_how_it_works   {
+    border:3px solid aliceblue;
+   	margin:auto;
+	margin-top:10px;
+	background-color:#6983bc;
+	padding:25px;
+	width:900px;	
+}
+
+.pic {
+	float:left;
+	color:white;
+	font-size:25px;
+}
+
+.desc {
+	float:left;
+	color:aliceblue;
+	font-size:25px;
+	width:600px;
+	padding-top:40px;
+}
+
+.logo {float:left;background-color:black;padding:25px 0 25px 0;}
+.start {float:left;background-color:#62c849;padding:25px 0 25px 0;}
