@@ -7,6 +7,10 @@ class Word < ActiveRecord::Base
   
   validates_presence_of :english
   
-
+  before_save :down_case_word
+  
+  def down_case_word
+    self.english = self.english.downcase
+  end
 
 end

@@ -1,10 +1,8 @@
 class Image < ActiveRecord::Base
 
   belongs_to :word
-
-  # if image is not a square then tell user to upload a square??
-  #   within %10 and make sure it is kinda big (400 +) ???
-
+  
+  belongs_to :user
 
   has_attached_file :picture, 
                     :styles => {
@@ -30,5 +28,8 @@ class Image < ActiveRecord::Base
       self.word.update_attribute(:published, true)
     end
   end
+  
+  # if image is not a square then tell user to upload a square??
+  #   within %10 and make sure it is kinda big (400 +) ???
 
 end

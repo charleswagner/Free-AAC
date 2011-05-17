@@ -14,13 +14,14 @@ body {
 #header {
    	padding:10px;
 	background:gray;
-	background-image:url(/images/header_background.png);
-	border-bottom:1px solid gray;
+	background-image:url(/images/header_background_gray.png);
+	border-bottom:3px solid white;
 }
 
 #body {
    padding:10px;
    padding-bottom:100px;   /* Height of the footer */
+	background-image:url(/images/header_background.png);
 }
 #footer {
    	position:absolute;

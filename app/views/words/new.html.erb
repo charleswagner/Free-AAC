@@ -14,10 +14,10 @@
 	
 
 
-	<h1>Step 1) Review And Understand Successful Submissions</h1>		
+	<h1> 1) Review And Understand Successful Submissions</h1>		
 
 	<h2>
-		Here are some recent successful submissions for <%= @example_word.english %>. Note the images clearly represent their words and do not contain offensive material.
+		Here are some recent successful submissions for <span class="highlight"><%= @example_word.english %></span>. Note the images clearly represent their words and do not contain offensive material.
 	</h2>
 	
 	<div id="successful_submissions">
@@ -40,11 +40,27 @@
 				</td>	
 			    <td><%= image_tag(image.picture(:medium), :size => '200x200') %></td>
 
-			    <td><%= image_tag('missing.png')%> <br/>
+			    <td>
+			
+					<% if image.user %>
+						<% if !image.user.picture_file_name.blank?%>
+							<%= image_tag(image.user.picture(:small))%>
+						<% else %>
+							<%= image_tag('missing.png')%>
+						<% end %>
+					<% else %>
+						<%= image_tag('missing.png')%>
+					<% end %>
 
 				</td>
 				<td>
-				<p><b>Artist:</b> Anonymous <br/>
+				<p><b>Artist:</b> 
+					<% if image.user %>
+						<%= image.user.name%>
+					<% else %>
+							Anonymous 
+					<% end %>
+					<br/>
 				<b>Added:</b> <%= image.created_at.strftime('%B %d, %Y')  %></p>
 
 				</td>
@@ -57,20 +73,25 @@
 	</div>
 	</div>
 
-	<h1>Step 2) Be An Artist</h1>		
+	<h1> 2) Be An Artist</h1>		
 
 	<h2>
 		Use a drawing program or take a picture of your original artwork.
 	</h2>
 
-	<h1>Step 3) <%= link_to "Create An Account", {} %> To Organize Your Hard Work</h1>
+
+	<h1> 3) <%= link_to_create_user(current_user)  %> | <%= link_to_login_user(current_user) %> With An Account To Organize Your Hard Work</h1>
 
 	<h2>
-		It is not necessary to create an account; however, you can create an account to organize all the images you upload to the community and show off your work.
+		<% if current_user %>
+			Looks like you are already logged in as <span class="highlight"><%= current_user.email %></span> so all your submission will be added to this account.
+		<% else %>
+			It is not necessary to create an account; however, you can create an account to organize all the images you upload to the community and show off your work.
+		<% end %>
 	</h2>
 
 
-	<h1>Step 4) Search For The Word Of Your Image</h1>
+	<h1> 4) Search For The Word Of Your Image</h1>
 	
 
 <h2>

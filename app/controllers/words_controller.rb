@@ -9,10 +9,10 @@ class WordsController < ApplicationController
   end
   
   def search
-    @word = Word.find(:first, :conditions => ['english=?', params[:word]])
+    @word = Word.find(:first, :conditions => ['english=?', params[:word].downcase])
     if !params[:word].blank? && !@word
       @word = Word.new
-      @word.english = params[:word]
+      @word.english = params[:word].downcase
     end
     render :action => 'new'
   end

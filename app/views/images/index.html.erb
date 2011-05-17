@@ -7,7 +7,7 @@
 
 
 		<h1>
-			ACC Word: <%=  @word.english.capitalize  %>  | <%= link_to "Add your image", new_word_image_path(@word)%>
+			<%=  @word.english.capitalize  %>  | <%= link_to "Add your image", new_word_image_path(@word)%>
 		</h1>
 
 	<div id="successful_submissions">
@@ -41,22 +41,33 @@
 			</td>	
 		    <td><%= image_tag(@word.images.first.picture(:medium), :size => '200x200') %></td>
 
-		    <td><%= image_tag('missing.png')%> 
-			
-			</td>
-			
-			 <td>
-
-			    <td>
-					<p><b>Artist:</b> Anonymous<br/>
-				<b>Added:</b> <%= @word.images.first.created_at %></p> 
+		    <td>
+					<% if @word.images.first.user %>
+						<% if !@word.images.first.picture_file_name.blank?%>
+							<%= image_tag(@word.images.first.user.picture(:small))%>
+						<% else %>
+							<%= image_tag('missing.png')%>
+						<% end %>
+					<% else %>
+						<%= image_tag('missing.png')%>
+					<% end %>
 
 				</td>
+				<td>
+				<p><b>Artist:</b> 
+					<% if  @word.images.first.user %>
+						<%=  @word.images.first.user.name%>
+					<% else %>
+							Anonymous 
+					<% end %>
+					<br/>
+				<b>Added:</b> <%=  @word.images.first.created_at.strftime('%B %d, %Y')  %></p>
 
+				</td>
 		  </tr>
 		
 		</table>
-<hr/>
+
 
 	<table>
 		
@@ -74,14 +85,29 @@
 		</td>	
 	    <td><%= image_tag(image.picture(:medium), :size => '200x200') %></td>
 
-	    <td><%= image_tag('missing.png')%> <br/>
-		
-		</td>
-		<td>
-		<p><b>Artist:</b> Anonymous <br/>
-		<b>Added:</b><%= image.created_at %></p>
-		
-		</td>
+	    <td>
+				<% if image.user %>
+					<% if !image.user.picture_file_name.blank?%>
+						<%= image_tag(image.user.picture(:small))%>
+					<% else %>
+						<%= image_tag('missing.png')%>
+					<% end %>
+				<% else %>
+					<%= image_tag('missing.png')%>
+				<% end %>
+
+			</td>
+			<td>
+			<p><b>Artist:</b> 
+				<% if image.user %>
+					<%= image.user.name%>
+				<% else %>
+						Anonymous 
+				<% end %>
+				<br/>
+			<b>Added:</b> <%= image.created_at.strftime('%B %d, %Y')  %></p>
+
+			</td>
 	    
 
 	  </tr>
