@@ -33,22 +33,22 @@ checkRAM();
 
   soundManager.createSound({
     id: 'aDrumSound',
-    url: 'http://www.schillmania.com/projects/soundmanager2/demo/mpc/audio/AMB_SN13.jpg'
+    url: 'http://www.schillmania.com/projects/soundmanager2/demo/mpc/audio/AMB_SN13.mp3'
   });
 
   soundManager.createSound({
       id: 'love',
-      url: 'http://charleswagner.net/speak/love.jpg'
+      url: 'http://charleswagner.net/speak/love.mp3'
   });
 
     soundManager.createSound({
       id: 'i',
-      url: 'http://charleswagner.net/speak/i.jpg'
+      url: 'http://charleswagner.net/speak/i.mp3'
   });
 
     soundManager.createSound({
       id: 'you',
-      url: 'http://charleswagner.net/speak/you.jpg'
+      url: 'http://charleswagner.net/speak/you.mp3'
   });
 
  soundManager.onload = function() {
@@ -66,9 +66,9 @@ soundManager.onerror = function() {
   // (SM2 calls will silently return false after this point.)
 }
 
-  soundManager.play('i');
-  soundManager.play('love');
-  soundManager.play('you');
+  //soundManager.play('i');
+ // soundManager.play('love');
+  //soundManager.play('you');
  // soundManager.play('aDrumSound');
 });
 
@@ -179,9 +179,9 @@ soundManager.onerror = function() {
 
 </head>
 <body onLoad="load();" onorientationchange="redrawDiv();">
-	<img src="http://charleswagner.net/speak/i.jpg" width=1 height=1>
-	<img src="http://charleswagner.net/speak/love.jpg" width=1 height=1>
-	<img src="http://charleswagner.net/speak/you.jpg" width=1 height=1>
+	<EMBED src="http://charleswagner.net/speak/i.mp3" autostart=true hidden=true>
+	<EMBED src="http://charleswagner.net/speak/love.mp3" autostart=true hidden=true>
+	<EMBED src="http://charleswagner.net/speak/you.mp3" autostart=true hidden=true>
 	
 <div id="done">DONE</div>
 
