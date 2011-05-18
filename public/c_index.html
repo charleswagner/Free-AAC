@@ -33,22 +33,22 @@ checkRAM();
 
   soundManager.createSound({
     id: 'aDrumSound',
-    url: 'http://www.schillmania.com/projects/soundmanager2/demo/mpc/audio/AMB_SN13.mp3'
+    url: 'http://www.schillmania.com/projects/soundmanager2/demo/mpc/audio/AMB_SN13.jpg'
   });
 
   soundManager.createSound({
       id: 'love',
-      url: 'http://charleswagner.net/speak/love.mp3'
+      url: 'http://charleswagner.net/speak/love.jpg'
   });
 
     soundManager.createSound({
       id: 'i',
-      url: 'http://charleswagner.net/speak/i.mp3'
+      url: 'http://charleswagner.net/speak/i.jpg'
   });
 
     soundManager.createSound({
       id: 'you',
-      url: 'http://charleswagner.net/speak/you.mp3'
+      url: 'http://charleswagner.net/speak/you.jpg'
   });
 
  soundManager.onload = function() {
@@ -179,9 +179,9 @@ soundManager.onerror = function() {
 
 </head>
 <body onLoad="load();" onorientationchange="redrawDiv();">
-	<EMBED src="http://charleswagner.net/speak/i.mp3" autostart=false hidden=true>
-	<EMBED src="http://charleswagner.net/speak/love.mp3" autostart=false hidden=true>
-	<EMBED src="http://charleswagner.net/speak/you.mp3" autostart=false hidden=true>
+	<img src="http://charleswagner.net/speak/i.jpg" width=1 height=1>
+	<img src="http://charleswagner.net/speak/love.jpg" width=1 height=1>
+	<img src="http://charleswagner.net/speak/you.jpg" width=1 height=1>
 	
 <div id="done">DONE</div>
 
