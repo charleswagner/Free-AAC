@@ -10,17 +10,17 @@ body {
    background-color:black;
    min-height:100%;
    position:relative;
-	background-image:url(/images/header_background.png);
+
 }
 #header {
    	padding:10px;
 	background:#505050;
-	border-bottom:2px solid white;
+
 }
 
 #body {
-   padding:10px;
-   padding-bottom:100px;   /* Height of the footer */
+
+   padding-bottom:90px;   /* Height of the footer */
 
 }
 #footer {
@@ -30,8 +30,8 @@ body {
    	width:100%;
    	height:80px;   /* Height of the footer */   
 	text-align:gray;
-	background:silver;
-	border-top:2px solid white;
+	background:#505050;
+
 }
 
 #footer a {color:black;}

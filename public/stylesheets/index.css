@@ -1,24 +1,21 @@
 #start {
-	background-color:black;
- 	width:949px;	
-    margin:auto;
-  	border:3px solid black;
+	margin-top:10px;
+	background-color:#62c849;
+	padding:10px;
+	text-align:center;
 }
 
 
-#contribute, #learn_more, #see_how_it_works  {
-    border:2px solid white;
-   	margin:auto;
+#contribute, #see_how_it_works  {
 	margin-top:10px;
 	background-color:#6983bc;
-	padding:25px;
-	width:900px;	
+	padding:10px;
+	text-align:center;	
 }
 
-#start, #contribute, #learn_more, #see_how_it_works, #successful_submissions   {
-	-moz-border-radius: 10px; /* Firefox */
-	 -webkit-border-radius: 10px; /* Safari, Chrome */
-	 border-radius: 10px; /* CSS3 */
+#see_how_it_works p {
+	color:white;
+	font-size:30px;
 }
 
 .pic {
@@ -37,3 +34,12 @@
 
 .logo {float:left;background-color:black;padding:25px 0 25px 0;}
 .start {float:left;background-color:#62c849;padding:25px 0 25px 0;}
+
+
+#home {
+	float:right;
+}
+
+#logo {
+	float:left;
+}
