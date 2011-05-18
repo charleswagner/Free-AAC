@@ -5,15 +5,35 @@ class ImagesController < ApplicationController
   before_filter :get_word
   
   def upvote
-    @image = Image.find(params[:id])
-    @image.update_attribute(:votes, @image.votes += 1)
+    if current_user
+      @image = Image.find(params[:id])
+      if @image.user_already_upvoted(current_user)
+        flash[:notice] = "You already upvoted this image"
+      else
+        @image.destroy_down_vote(current_user)
+        @vote = Vote.create(:user => current_user, :up => true, :image => @image)
+        @image.update_attribute(:vote_count, @image.vote_count += 1)
+      end
+    else
+      flash[:notice] = "You must be signed in to vote"
+    end
     redirect_to :back
   end
   
   def downvote
-    @image = Image.find(params[:id])
-    @image.update_attribute(:votes, @image.votes -= 1)
-    redirect_to :back
+     if current_user
+        @image = Image.find(params[:id])
+        if @image.user_already_downvoted(current_user)
+          flash[:notice] = "You already upvoted this image"
+        else
+          @image.destroy_up_vote(current_user)
+          @vote = Vote.create(:user => current_user, :down => true, :image => @image)
+          @image.update_attribute(:vote_count, @image.vote_count -= 1)
+        end
+      else
+        flash[:notice] = "You must be signed in to vote"
+      end
+      redirect_to :back
   end
   
   def get_word
@@ -23,8 +43,6 @@ class ImagesController < ApplicationController
   end
 
   def index
-
-
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @images }

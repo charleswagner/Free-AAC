@@ -3,7 +3,6 @@ body { background-color: #fff; color: #333; }
 body, p, ol, ul, td {
   font-family: tahoma, verdana, arial, helvetica, sans-serif;
   font-size:   13px;
-
 }
 
 pre {
@@ -54,7 +53,10 @@ div.field, div.actions {
 }
 
 
-.highlight {background-color:yellow;}
+.highlight {background-color:#C9BE62;padding:2px;color:black;
+	-moz-border-radius: 5px; /* Firefox */
+	 -webkit-border-radius: 5px; /* Safari, Chrome */
+	 border-radius: 5px; /* CSS3 */}
 
 .big_input {font-size:20px;padding:4px;}
 

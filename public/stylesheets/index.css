@@ -2,12 +2,12 @@
 	background-color:black;
  	width:949px;	
     margin:auto;
-  	border:5px solid black;
+  	border:3px solid black;
 }
 
 
-#contribute, #learn_more, #see_how_it_works   {
-    border:3px solid aliceblue;
+#contribute, #learn_more, #see_how_it_works  {
+    border:2px solid white;
    	margin:auto;
 	margin-top:10px;
 	background-color:#6983bc;
@@ -15,7 +15,7 @@
 	width:900px;	
 }
 
-#start, #contribute, #learn_more, #see_how_it_works, #successful_submissions  {
+#start, #contribute, #learn_more, #see_how_it_works, #successful_submissions   {
 	-moz-border-radius: 10px; /* Firefox */
 	 -webkit-border-radius: 10px; /* Safari, Chrome */
 	 border-radius: 10px; /* CSS3 */

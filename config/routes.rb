@@ -1,5 +1,5 @@
 FreeAcc::Application.routes.draw do
-
+  
   resources :phrases
   
   resources :words do
@@ -16,6 +16,9 @@ FreeAcc::Application.routes.draw do
      end
   end
   
+  devise_for :users
+  
+  match 'users/edit', :to => 'users#edit', :as => :user_root # Rails 3
   
   root :to => "words#index"
 

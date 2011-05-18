@@ -1,5 +1,7 @@
 <div id="footer">
 	<div class="content">
-		Footer
+		<h2>
+			<%= link_to "My Account", edit_user_registration_path %> | <%= link_to "Sign out", destroy_user_session_path if current_user %>
+		</h2>
 	</div>
 </div>

@@ -10,18 +10,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110514183317) do
+ActiveRecord::Schema.define(:version => 20110517043551) do
 
   create_table "images", :force => true do |t|
     t.string   "picture_file_name"
     t.integer  "picture_file_size"
     t.string   "picture_file_type"
-    t.integer  "votes",             :default => 0
+    t.integer  "vote_count",        :default => 0
     t.integer  "word_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
+  add_index "images", ["user_id"], :name => "index_images_on_user_id"
   add_index "images", ["word_id"], :name => "index_images_on_word_id"
 
   create_table "phrase_words", :force => true do |t|
@@ -39,6 +41,41 @@ ActiveRecord::Schema.define(:version => 20110514183317) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "users", :force => true do |t|
+    t.string   "email",                               :default => "",          :null => false
+    t.string   "encrypted_password",   :limit => 128, :default => "",          :null => false
+    t.string   "password_salt",                       :default => "",          :null => false
+    t.string   "reset_password_token"
+    t.string   "remember_token"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",                       :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name",                                :default => "Anonymous"
+    t.string   "picture_file_name"
+    t.string   "picture_file_type"
+    t.integer  "picture_file_size"
+  end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "votes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "image_id"
+    t.boolean  "up"
+    t.boolean  "down"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "votes", ["image_id"], :name => "index_votes_on_image_id"
+  add_index "votes", ["user_id"], :name => "index_votes_on_user_id"
 
 # Could not dump table "words" because of following StandardError
 #   Unknown type 'boolena' for column 'published'

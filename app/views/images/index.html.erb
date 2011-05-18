@@ -7,7 +7,7 @@
 
 
 		<h1>
-			ACC Word: <%=  @word.english.capitalize  %>  | <%= link_to "Add your image", new_word_image_path(@word)%>
+			<%=  @word.english.capitalize  %>  | <%= link_to "Add your image", new_word_image_path(@word)%>
 		</h1>
 
 	<div id="successful_submissions">
@@ -32,31 +32,52 @@
 		  <tr>
 		    <td>
 				<div class="vote_count">
-				<%= link_to(image_tag('upvote.png'), upvote_image_path(@word.images.first), :method => :put) %> <br/>
-			
-					<%= @word.images.first.votes %> <br/>
+					
+						<% if @word.images.first.user_already_upvoted(current_user)%>
+							<%= image_tag('upvote.png') %> 
+						<% else %>
+							<%= link_to(image_tag('default_upvote.png'), upvote_image_path(@word.images.first), :method => :put) %> 
+						<% end %><br/>
 
-				<%= link_to(image_tag('downvote.png'), downvote_image_path(@word.images.first), :method => :put) %>
+							<%=  @word.images.first.vote_count%> Votes <br/>
+
+								<% if @word.images.first.user_already_downvoted(current_user)%>
+									<%= image_tag('downvote.png') %> 
+								<% else %>
+									<%= link_to(image_tag('default_downvote.png'), downvote_image_path(@word.images.first), :method => :put) %>
+								<% end %><br/>
+
 				</div>
 			</td>	
 		    <td><%= image_tag(@word.images.first.picture(:medium), :size => '200x200') %></td>
 
-		    <td><%= image_tag('missing.png')%> 
-			
-			</td>
-			
-			 <td>
-
-			    <td>
-					<p><b>Artist:</b> Anonymous<br/>
-				<b>Added:</b> <%= @word.images.first.created_at %></p> 
+		    <td>
+					<% if @word.images.first.user %>
+						<% if !@word.images.first.picture_file_name.blank?%>
+							<%= image_tag(@word.images.first.user.picture(:small))%>
+						<% else %>
+							<%= image_tag('missing.png')%>
+						<% end %>
+					<% else %>
+						<%= image_tag('missing.png')%>
+					<% end %>
 
 				</td>
+				<td>
+				<p><b>Artist:</b> 
+					<% if  @word.images.first.user %>
+						<%=  @word.images.first.user.name%>
+					<% else %>
+							Anonymous 
+					<% end %>
+					<br/>
+				<b>Added:</b> <%=  @word.images.first.created_at.strftime('%B %d, %Y')  %></p>
 
+				</td>
 		  </tr>
 		
 		</table>
-<hr/>
+
 
 	<table>
 		
@@ -66,22 +87,50 @@
 	<% unless @word.images.first == image %>
 	  <tr style="background-color:<%= cycle('#EBDDE2', 'white')%>">
 	    <td>
-			<div class="vote_count">
-			<%= link_to(image_tag('upvote.png'), upvote_image_path(image), :method => :put) %> <br/>
-				<%= image.votes%> <br/>
-			<%= link_to(image_tag('downvote.png'), downvote_image_path(image), :method => :put) %>
+	
+					<div class="vote_count">
+					<% if image.user_already_upvoted(current_user)%>
+						<%= image_tag('upvote.png') %> 
+					<% else %>
+						<%= link_to(image_tag('default_upvote.png'), upvote_image_path(image), :method => :put) %> 
+					<% end %><br/>
+					
+						<%= image.vote_count%> Votes <br/>
+
+							<% if image.user_already_downvoted(current_user)%>
+								<%= image_tag('downvote.png') %> 
+							<% else %>
+								<%= link_to(image_tag('default_downvote.png'), downvote_image_path(image), :method => :put) %>
+							<% end %><br/>
+
+
 			</div>
 		</td>	
 	    <td><%= image_tag(image.picture(:medium), :size => '200x200') %></td>
 
-	    <td><%= image_tag('missing.png')%> <br/>
-		
-		</td>
-		<td>
-		<p><b>Artist:</b> Anonymous <br/>
-		<b>Added:</b><%= image.created_at %></p>
-		
-		</td>
+	    <td>
+				<% if image.user %>
+					<% if !image.user.picture_file_name.blank?%>
+						<%= image_tag(image.user.picture(:small))%>
+					<% else %>
+						<%= image_tag('missing.png')%>
+					<% end %>
+				<% else %>
+					<%= image_tag('missing.png')%>
+				<% end %>
+
+			</td>
+			<td>
+			<p><b>Artist:</b> 
+				<% if image.user %>
+					<%= image.user.name%>
+				<% else %>
+						Anonymous 
+				<% end %>
+				<br/>
+			<b>Added:</b> <%= image.created_at.strftime('%B %d, %Y')  %></p>
+
+			</td>
 	    
 
 	  </tr>
