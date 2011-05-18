@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :picture, :name
   
   has_many :images
+  has_many :votes
   
   has_attached_file :picture, 
                     :styles => {

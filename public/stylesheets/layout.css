@@ -10,27 +10,28 @@ body {
    background-color:black;
    min-height:100%;
    position:relative;
+	background-image:url(/images/header_background.png);
 }
 #header {
    	padding:10px;
-	background:gray;
-	background-image:url(/images/header_background_gray.png);
-	border-bottom:3px solid white;
+	background:#505050;
+	border-bottom:2px solid white;
 }
 
 #body {
    padding:10px;
    padding-bottom:100px;   /* Height of the footer */
-	background-image:url(/images/header_background.png);
+
 }
 #footer {
+	text-align:center;
    	position:absolute;
    	bottom:0;
    	width:100%;
    	height:80px;   /* Height of the footer */   
-	text-align:center;
+	text-align:gray;
 	background:silver;
-	border-top:2px solid darkgray;
+	border-top:2px solid white;
 }
 
 #footer a {color:black;}

@@ -10,13 +10,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110517031530) do
+ActiveRecord::Schema.define(:version => 20110517043551) do
 
   create_table "images", :force => true do |t|
     t.string   "picture_file_name"
     t.integer  "picture_file_size"
     t.string   "picture_file_type"
-    t.integer  "votes",             :default => 0
+    t.integer  "vote_count",        :default => 0
     t.integer  "word_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -64,6 +64,18 @@ ActiveRecord::Schema.define(:version => 20110517031530) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "votes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "image_id"
+    t.boolean  "up"
+    t.boolean  "down"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "votes", ["image_id"], :name => "index_votes_on_image_id"
+  add_index "votes", ["user_id"], :name => "index_votes_on_user_id"
 
 # Could not dump table "words" because of following StandardError
 #   Unknown type 'boolena' for column 'published'

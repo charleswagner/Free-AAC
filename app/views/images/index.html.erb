@@ -32,11 +32,21 @@
 		  <tr>
 		    <td>
 				<div class="vote_count">
-				<%= link_to(image_tag('upvote.png'), upvote_image_path(@word.images.first), :method => :put) %> <br/>
-			
-					<%= @word.images.first.votes %> <br/>
+					
+						<% if @word.images.first.user_already_upvoted(current_user)%>
+							<%= image_tag('upvote.png') %> 
+						<% else %>
+							<%= link_to(image_tag('default_upvote.png'), upvote_image_path(@word.images.first), :method => :put) %> 
+						<% end %><br/>
 
-				<%= link_to(image_tag('downvote.png'), downvote_image_path(@word.images.first), :method => :put) %>
+							<%=  @word.images.first.vote_count%> Votes <br/>
+
+								<% if @word.images.first.user_already_downvoted(current_user)%>
+									<%= image_tag('downvote.png') %> 
+								<% else %>
+									<%= link_to(image_tag('default_downvote.png'), downvote_image_path(@word.images.first), :method => :put) %>
+								<% end %><br/>
+
 				</div>
 			</td>	
 		    <td><%= image_tag(@word.images.first.picture(:medium), :size => '200x200') %></td>
@@ -77,10 +87,23 @@
 	<% unless @word.images.first == image %>
 	  <tr style="background-color:<%= cycle('#EBDDE2', 'white')%>">
 	    <td>
-			<div class="vote_count">
-			<%= link_to(image_tag('upvote.png'), upvote_image_path(image), :method => :put) %> <br/>
-				<%= image.votes%> <br/>
-			<%= link_to(image_tag('downvote.png'), downvote_image_path(image), :method => :put) %>
+	
+					<div class="vote_count">
+					<% if image.user_already_upvoted(current_user)%>
+						<%= image_tag('upvote.png') %> 
+					<% else %>
+						<%= link_to(image_tag('default_upvote.png'), upvote_image_path(image), :method => :put) %> 
+					<% end %><br/>
+					
+						<%= image.vote_count%> Votes <br/>
+
+							<% if image.user_already_downvoted(current_user)%>
+								<%= image_tag('downvote.png') %> 
+							<% else %>
+								<%= link_to(image_tag('default_downvote.png'), downvote_image_path(image), :method => :put) %>
+							<% end %><br/>
+
+
 			</div>
 		</td>	
 	    <td><%= image_tag(image.picture(:medium), :size => '200x200') %></td>
