@@ -66,9 +66,9 @@ soundManager.onerror = function() {
   // (SM2 calls will silently return false after this point.)
 }
 
-  //soundManager.play('i');
- // soundManager.play('love');
-  //soundManager.play('you');
+  soundManager.play('i');
+  soundManager.play('love');
+  soundManager.play('you');
  // soundManager.play('aDrumSound');
 });
 
@@ -179,9 +179,9 @@ soundManager.onerror = function() {
 
 </head>
 <body onLoad="load();" onorientationchange="redrawDiv();">
-	<img src="http://charleswagner.net/speak/i.mp3" width=1 height=1>
-	<img src="http://charleswagner.net/speak/love.mp3" width=1 height=1>
-	<img src="http://charleswagner.net/speak/you.mp3" width=1 height=1>
+	<EMBED src="http://charleswagner.net/speak/i.mp3" autostart=false hidden=true>
+	<EMBED src="http://charleswagner.net/speak/love.mp3" autostart=false hidden=true>
+	<EMBED src="http://charleswagner.net/speak/you.mp3" autostart=false hidden=true>
 	
 <div id="done">DONE</div>
 
