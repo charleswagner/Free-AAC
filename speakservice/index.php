@@ -36,7 +36,8 @@ header('Content-type: audio/mpeg');
 header('Content-length: ' . $size);
 header('Content-Disposition: filename="'.$phrase.'.mp3"');
 header('X-Pad: avoid browser bug');
-Header('Cache-Control: no-cache');
+Header('Cache-Control: max-age=36000');
+
 
 echo
 $fc;
