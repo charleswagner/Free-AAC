@@ -5,7 +5,7 @@
 	</p>
 <h2>1) What image/word do you want to contribute?</h2>
 	<div class="content">
-			<%= form_tag(words_path, :method => :get) do %>
+			<%= form_tag(images_path, :method => :get) do %>
 				<%= text_field_tag :word, params[:word], :class => 'big_input' %>
 				<%= submit_tag 'Search', :disable_with => "Searching..."%>
 			<% end %>
