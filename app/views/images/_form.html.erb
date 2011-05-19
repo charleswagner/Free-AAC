@@ -11,13 +11,42 @@
     </div>
   <% end %>
 
+	<h3>
+		Image requirements
+	</h3>
+	
+	<ul>
+		<li>Make sure you picture is 400x400 (like a square)</li>
+		<li>Another tip here</li>
+		<li>And something else here</li>
+	</ul>
+
   <div class="field">
     <%= f.file_field :picture %>
-	<%= f.hidden_field :word_id, :value => @word.id %>
-	<%= f.hidden_field :user_id, :value => current_user.id if current_user %>
+	<%= f.hidden_field :word, :value => params[:word] %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<h3>
+		Terms And Conditions
+	</h3>
+	
+	<ul>
+		<li>I understand this</li>
+		<li>And that is this</li>
+		<li>When here is there</li>
+	</ul>
+
+  	<p>
+	<%= f.check_box :terms_and_conditions %> I accept the terms and conditions
+	</p>
+	
+	<div class="field">
+		<%= f.submit 'Submit', :disable_with => "Submitting..."%>
+  	</div>
+	
+	 
+
+	<div class="field">
+
+	</div>
 <% end %>

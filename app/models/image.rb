@@ -1,5 +1,7 @@
 class Image < ActiveRecord::Base
 
+  attr_accessor :terms_and_conditions
+
   belongs_to :word
   
   belongs_to :user

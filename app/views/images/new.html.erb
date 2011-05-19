@@ -1,11 +1,26 @@
 <div id="contribute">
+<h1>Contribute</h1>
+	<p>
+		Contributing to FreeACC.org as an artist is easy. By uploading images which express words and ideas you help others express themselves.
+	</p>
+<h2>1) What image/word do you want to contribute?</h2>
+	<div class="content">
+			<%= form_tag(words_path, :method => :get) do %>
+				<%= text_field_tag :word, params[:word], :class => 'big_input' %>
+				<%= submit_tag 'Search', :disable_with => "Searching..."%>
+			<% end %>
 
-<div class="content">
-	<h1>Add an image to: <%= @word.english %></h1>
-
-	<%= render 'form' %>
-
-	<%= link_to 'Back', images_path %>
-
+<h3>Tips for your image</h3>
+			<ul>
+				<li>Make sure it's simple</li>
+				<li>Has a universal meaning</li>
+				<li>Something else here</li>
+			</ul>
 	</div>
+
+<h2>2) Add Your Image</h2>
+<div class="content">
+	<%= render 'form' %>
+</div>
+
 </div>
