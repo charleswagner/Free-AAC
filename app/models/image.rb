@@ -16,17 +16,6 @@ class Image < ActiveRecord::Base
 
   validates_attachment_presence :picture 
   
-  after_save :send_to_editor
-  before_destroy :send_to_editor
-  
-  def send_to_editor
-    if self.word.images.blank?
-      self.word.update_attribute(:published, false)
-    else
-      self.word.update_attribute(:published, true)
-    end
-  end
-
   # if image is not a square then tell user to upload a square??
   #   within %10 and make sure it is kinda big (400 +) ???
 

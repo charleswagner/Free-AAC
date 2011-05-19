@@ -3,7 +3,7 @@
 html,
 body {
   font-family: tahoma, verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 15px;
    margin:0;
    padding:0;
    height:100%;
@@ -40,29 +40,32 @@ body {
 
 p {
 	color:white;
-	font-size:15px;
 	margin:10px 0 10px 0;
-
 }
 
 ul {
-	margin:15px;;
+	margin:10px 0 10px 15px;;
 	padding:5px;
-	color:aliceblue;
-	font-size:15px;
-	list-style-type:circle;
+	color:#181818;
+	list-style-type:disc;
 	}
 
-img {margin:0px;border:none;}
+ul li {
+	padding:1px 0 1px 0;
+}	
+
+img {margin:2px;border:none;}
+
+a {color:yellow;}
 
 h1, h2, h3 {
 	color:white;
 	font-weight:bold;
 	}
 
-h1 {font-size:30px;margin:15px 0 5px 0;}
-h2 {font-size:25px;margin:10px 0 5px 0;}
-h3 {font-size:20px;margin:10px 0 5px 0;}
+h1 {font-size:30px;margin:10px 0 10px 0;}
+h2 {font-size:25px;margin:10px 0 10px 0;}
+h3 {font-size:20px;margin:10px 0 10px 0;}
 
 
 div.field, div.actions {
@@ -141,3 +144,20 @@ div.field, div.actions {
 	width:900px;
 	margin:auto;
 	}
+	
+#image_form {
+	display:none;
+}
+
+.highlight {background-color:#6983bc;color:black;padding:4px;font-weight:bold;}
+
+#terms_and_conditions_div {display:none;}
+
+#image_submit {display:none;}
+
+input {padding:4px;}
+
+
+#images img {padding:5px;background-color:white;}
+
+

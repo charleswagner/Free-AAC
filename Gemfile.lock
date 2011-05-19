@@ -28,7 +28,7 @@ GEM
       activemodel (= 3.0.5)
       activesupport (= 3.0.5)
     activesupport (3.0.5)
-    arel (2.0.9)
+    arel (2.0.10)
     aws-s3 (0.6.2)
       builder
       mime-types

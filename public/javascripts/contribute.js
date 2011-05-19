@@ -5,7 +5,14 @@ jQuery(document).ready(function() {
 	 	alert('Sorry! Apple does not allow uploads from Mobile Safari. Try a PC/Mac browser.')
 	}
 	
-	//Auto Complete Word Searching//
+	$('#image_terms_and_conditions').click(function() {
+		if ($('#image_terms_and_conditions').attr('checked')) {
+			$('#image_submit').show();		
+		} else {
+			$('#image_submit').hide();		
+		}	
+	});
 	
-	//Showing And Hiding Divs//
 });
+
+
