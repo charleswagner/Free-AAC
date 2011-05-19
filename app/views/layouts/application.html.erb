@@ -21,4 +21,13 @@
 	   <%= render 'shared/footer' %>
 	</div>
 </body>
+<script type="text/javascript">	
+	window.onload = function() {
+		function ismobilesafari() {
+		    if( navigator.userAgent.match( /(iPod|iPhone|iPad)/ ) ) {
+		     	alert('Sorry! Apple does not allow uploads from Mobile Safari. Try a PC/Mac browser.')
+		    }
+		}
+	};
+</script>
 </html>
