@@ -11,6 +11,13 @@
 	<link rel="apple-touch-icon-precomposed" href="images/homeicon.png"/>
 	<link rel="apple-touch-startup-image" href="images/myCustomStartupGraphic.png" />
 	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+	<script type="text/javascript">	
+		window.onload = function () {
+			    if(navigator.userAgent.match( /(iPod|iPhone|iPad)/ ) ) {
+			     	alert('Sorry! Apple does not allow uploads from Mobile Safari. Try a PC/Mac browser.')
+			    } 
+			}
+	</script>
 </head>
 <body>
 	<div id="container">
@@ -21,13 +28,4 @@
 	   <%= render 'shared/footer' %>
 	</div>
 </body>
-<script type="text/javascript">	
-	window.onload = function() {
-		function ismobilesafari() {
-		    if( navigator.userAgent.match( /(iPod|iPhone|iPad)/ ) ) {
-		     	alert('Sorry! Apple does not allow uploads from Mobile Safari. Try a PC/Mac browser.')
-		    }
-		}
-	};
-</script>
 </html>
