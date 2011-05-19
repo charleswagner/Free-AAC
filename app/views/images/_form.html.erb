@@ -1,4 +1,9 @@
+
 <%= form_for([@word, @image], :html => {:multipart => true }) do |f| %>
+<h2>2) Add Your Image</h2>
+<div class="content">
+
+
   <% if @image.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
@@ -25,10 +30,9 @@
     <%= f.file_field :picture %>
 	<%= f.hidden_field :word, :value => params[:word] %>
   </div>
-
-	<h3>
-		Terms And Conditions
-	</h3>
+</div>
+<h2>3) Terms And Conditions</h2>
+<div class="content">
 	
 	<ul>
 		<li>I understand this</li>
