@@ -1,3 +1,5 @@
 <div id="contribute">
-test
+<% @images.each do |img| %>
+	<%= image_tag(img.picture(:small), :id => 'toast', :class => 'image')%>
+<% end %>
 </div>

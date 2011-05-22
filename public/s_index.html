@@ -1,0 +1,198 @@
+<html>
+<head>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<link rel="apple-touch-icon-precomposed" href="images/homeicon.png"/>
+<link rel="apple-touch-startup-image" href="images/myCustomStartupGraphic.png" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+
+  <script src="/javascripts/jquery.js"></script>
+  <script src="/javascripts/soundmanager.js"></script>
+
+<script>
+
+soundManager.url = '/data/swf/';
+soundManager.flashVersion = 9; // optional: shiny features (default = 8)
+soundManager.useFlashBlock = true; // optionally, enable when you're ready to dive in
+soundManager.debugMode = false;
+// enable HTML5 audio support, if you're feeling adventurous. iPad/iPhone will always get this.
+// soundManager.useHTML5Audio = true;
+soundManager.onready(function(oStatus) {
+    soundManager.url = '/data/swf/';
+  if (!oStatus.success) {
+    return false;
+  }
+  // soundManager is initialised, ready to use. Create a sound for this demo page.
+/*
+if (soundManager.flashVersion > 8) {
+t = window.setInterval(checkRAM,500);
+document.getElementById('flash-ram-use').style.display = 'inline';
+checkRAM();
+}*/
+
+  soundManager.createSound({
+    id: 'aDrumSound',
+    url: 'http://www.schillmania.com/projects/soundmanager2/demo/mpc/audio/AMB_SN13.jpg'
+  });
+
+  soundManager.createSound({
+      id: 'love',
+      url: '/sounds/love.mp3'
+  });
+
+    soundManager.createSound({
+      id: 'i',
+      url: '/sounds/love.mp3'
+  });
+
+    soundManager.createSound({
+      id: 'you',
+      url: '/sounds/love.mp3'
+  });
+
+ soundManager.onload = function() {
+  // soundManager is ready to use.
+  // createSound() / play() etc. can now be called
+
+
+
+    //
+    //soundManager.play('i','/data/i.wav');
+}
+soundManager.onerror = function() {
+  // Oh no! No sound support.
+  // Maybe configure your app to ignore sound calls.
+  // (SM2 calls will silently return false after this point.)
+}
+
+  //soundManager.play('i');
+ // soundManager.play('love');
+  //soundManager.play('you');
+ // soundManager.play('aDrumSound');
+});
+
+
+</script>
+
+
+
+
+
+
+  <script type="text/javascript">
+    var numImages = 0;
+    var imageWidth= 100;
+
+    var imageWidth = 100;
+    var imageMargin = 5;
+
+
+    function load(){
+        redrawDiv();
+
+
+
+
+    }
+
+    function resizeImages(){
+        var clientHeight = document.getElementById("images").clientHeight;
+        var clientWidth = document.getElementById("images").clientWidth;
+            imageWidth = 62;
+            imageMargin=3;
+            $('.image').css({width: imageWidth, margin: imageMargin, height: imageWidth});
+            imageWidthPixels = imageWidth + (imageMargin *2);
+            numColumns = Math.floor(clientWidth / imageWidthPixels) ;
+            numRows = Math.floor(clientHeight / imageWidthPixels);
+            numImages = numColumns *numRows -1;
+
+    }
+
+    function playSound(soundobj) {
+    soundManager.play(soundobj);
+   // var embed = "<embed src='/data/"+soundobj+".wav' hidden=true autostart=true loop=false>";
+   // document.getElementById("dummyspan").innerHTML= embed;
+   // alert(soundobj);
+    }
+
+
+
+    function redrawDiv(){
+       // var availHeight = window.screen.availHeight;
+       // var availWidth = window.screen.availWidth;
+        var clientHeight = document.getElementById("images").clientHeight;
+        var clientWidth = document.getElementById("images").clientWidth;
+
+        //alert(availHeight);
+        //alert(availWidth);
+        var pixels = clientHeight*clientWidth;
+        var numImages = pixels / (110 *110 );
+
+        var imageWidthPixels = imageWidth + (imageMargin *2);
+        var numColumns = Math.floor(clientWidth / imageWidthPixels) ;
+        var numRows = Math.floor(clientHeight / imageWidthPixels);
+        numImages = numColumns *numRows;
+
+        var resize=false;
+        //alert(numImages);
+        if(numImages < 6 ||imageWidth <100){
+            imageWidth = 60;
+            imageMargin=4;
+            $('.image').css({width: imageWidth, margin: imageMargin, height: imageWidth});
+            imageWidthPixels = imageWidth + (imageMargin *2);
+            numColumns = Math.floor(clientWidth / imageWidthPixels) ;
+            numRows = Math.floor(clientHeight / imageWidthPixels);
+            numImages = numColumns *numRows;
+            resize=true;
+
+        }
+
+        //alert(resize);
+
+        //alert(numColumns);
+        //alert(pixels);
+        //alert(pixels / (100 *100))
+        $('#images').html("");
+        for(var i = 0; i < numImages; i++){
+            var word = getRandomWord();
+            // " onClick=\'playSound("sound_'+word+'")\'
+            $('#images').html($('#images').html()+'<div class="image"><a href=\'javascript:playSound("'+word+'");\'><img src="images/'+word+'.jpg" width="'+imageWidth+'" /></a></div>');
+        }
+        if(resize){
+            resizeImages(numImages);
+        }
+
+    }
+    function getRandomWord(){
+        var imageArray = ["i","love","you"];
+        return imageArray[Math.floor(Math.random() *3)];
+
+    }
+
+
+  </script>
+
+
+
+
+
+</head>
+<body onLoad="load();" onorientationchange="redrawDiv();">
+	<EMBED src="/sounds/love.mp3" autostart=true hidden=true>
+	<EMBED src="/sounds/love.mp3" autostart=true hidden=true>
+	<EMBED src="/sounds/love.mp3" autostart=true hidden=true>
+	<img src="/sounds/love.mp3" autostart=true hidden=true>
+	<img src="/sounds/love.mp3" autostart=true hidden=true>
+	<img src="/sounds/love.mp3" autostart=true hidden=true>
+<div id="done">DONE</div>
+
+<div id="images"> IMAGES
+</div>
+
+  <span id="back">BACK</span>
+  <span id="more">MORE</span>
+
+
+</body>
+</html>
