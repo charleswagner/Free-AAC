@@ -1,0 +1,71 @@
+=> Booting WEBrick
+=> Rails 3.0.5 application starting in development on http://0.0.0.0:3000
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+
+
+Started GET "/images/new" for 127.0.0.1 at 2011-05-19 20:32:07 -0500
+  Processing by ImagesController#new as HTML
+DEPRECATION WARNING: RAILS_ROOT is deprecated. Please use ::Rails.root.to_s. (called from <class:Image> at /Users/macuser/Sites/free_acc/app/models/image.rb:14)
+Rendered collection (0.0ms)
+Rendered images/_form.html.erb (9.8ms)
+Rendered shared/_header.html.erb (2.1ms)
+Rendered shared/_footer.html.erb (0.3ms)
+Rendered images/new.html.erb within layouts/application (19.2ms)
+Completed 200 OK in 74ms (Views: 25.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/images/search?utf8=%E2%9C%93&word=funky&commit=Search" for 127.0.0.1 at 2011-05-19 20:32:13 -0500
+  Processing by ImagesController#search as JS
+  Parameters: {"utf8"=>"✓", "word"=>"funky", "commit"=>"Search"}
+  [1m[36mImage Load (0.5ms)[0m  [1mSELECT "images".* FROM "images" WHERE (word like '%funky%')[0m
+Rendered images/search.js.erb (1.4ms)
+Completed 200 OK in 116ms (Views: 26.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/images" for 127.0.0.1 at 2011-05-19 20:32:32 -0500
+  Processing by ImagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZqyR6iOb1PyvPSrzhdJiHY0xxiT3eUL3TSRFuVFwy6A=", "image"=>{"picture"=>#<ActionDispatch::Http::UploadedFile:0x00000101715898 @original_filename="zzbeer.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image[picture]\"; filename=\"zzbeer.jpg\"\r\nContent-Type: image/jpeg\r\n", @tempfile=#<File:/var/folders/RF/RFaSDVYJHOiUBGS+4ALtO++++TI/-Tmp-/RackMultipart20110519-1532-pzmphy>>, "word"=>"funky", "terms_and_conditions"=>"1"}, "commit"=>"Submit"}
+[paperclip] identify -format %wx%h '/var/folders/RF/RFaSDVYJHOiUBGS+4ALtO++++TI/-Tmp-/stream20110519-1532-1bvhcsu.jpg[0]' 2>/dev/null
+[paperclip] convert '/var/folders/RF/RFaSDVYJHOiUBGS+4ALtO++++TI/-Tmp-/stream20110519-1532-1bvhcsu.jpg[0]' -resize "400x400>" '/var/folders/RF/RFaSDVYJHOiUBGS+4ALtO++++TI/-Tmp-/stream20110519-1532-1bvhcsu20110519-1532-1p6tud3' 2>/dev/null
+[paperclip] identify -format %wx%h '/var/folders/RF/RFaSDVYJHOiUBGS+4ALtO++++TI/-Tmp-/stream20110519-1532-1bvhcsu.jpg[0]' 2>/dev/null
+[paperclip] convert '/var/folders/RF/RFaSDVYJHOiUBGS+4ALtO++++TI/-Tmp-/stream20110519-1532-1bvhcsu.jpg[0]' -resize "300x300>" '/var/folders/RF/RFaSDVYJHOiUBGS+4ALtO++++TI/-Tmp-/stream20110519-1532-1bvhcsu20110519-1532-nf86p' 2>/dev/null
+[paperclip] identify -format %wx%h '/var/folders/RF/RFaSDVYJHOiUBGS+4ALtO++++TI/-Tmp-/stream20110519-1532-1bvhcsu.jpg[0]' 2>/dev/null
+[paperclip] convert '/var/folders/RF/RFaSDVYJHOiUBGS+4ALtO++++TI/-Tmp-/stream20110519-1532-1bvhcsu.jpg[0]' -resize "200x200>" '/var/folders/RF/RFaSDVYJHOiUBGS+4ALtO++++TI/-Tmp-/stream20110519-1532-1bvhcsu20110519-1532-59uv4k' 2>/dev/null
+[paperclip] identify -format %wx%h '/var/folders/RF/RFaSDVYJHOiUBGS+4ALtO++++TI/-Tmp-/stream20110519-1532-1bvhcsu.jpg[0]' 2>/dev/null
+[paperclip] convert '/var/folders/RF/RFaSDVYJHOiUBGS+4ALtO++++TI/-Tmp-/stream20110519-1532-1bvhcsu.jpg[0]' -resize "100x100>" '/var/folders/RF/RFaSDVYJHOiUBGS+4ALtO++++TI/-Tmp-/stream20110519-1532-1bvhcsu20110519-1532-1n5mzvx' 2>/dev/null
+[paperclip] identify -format %wx%h '/var/folders/RF/RFaSDVYJHOiUBGS+4ALtO++++TI/-Tmp-/stream20110519-1532-1bvhcsu.jpg[0]' 2>/dev/null
+[paperclip] convert '/var/folders/RF/RFaSDVYJHOiUBGS+4ALtO++++TI/-Tmp-/stream20110519-1532-1bvhcsu.jpg[0]' -resize "50x50>" '/var/folders/RF/RFaSDVYJHOiUBGS+4ALtO++++TI/-Tmp-/stream20110519-1532-1bvhcsu20110519-1532-os7sgk' 2>/dev/null
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.6ms)[0m  [1mINSERT INTO "images" ("picture_file_name", "picture_file_size", "picture_file_type", "vote_count", "word_id", "created_at", "updated_at", "user_id", "word") VALUES ('zzbeer.jpg', 18622, NULL, 0, NULL, '2011-05-20 01:32:33.690651', '2011-05-20 01:32:33.690651', NULL, 'funky')[0m
+[paperclip] Saving attachments.
+[paperclip] saving freeacc/pictures/original/5.jpg
+[paperclip] saving freeacc/pictures/xlarge/5.jpg
+[paperclip] saving freeacc/pictures/large/5.jpg
+[paperclip] saving freeacc/pictures/medium/5.jpg
+[paperclip] saving freeacc/pictures/small/5.jpg
+[paperclip] saving freeacc/pictures/thumbnail/5.jpg
+Redirected to http://localhost:3000/images
+Completed 302 Found in 4715ms
+
+
+Started GET "/images" for 127.0.0.1 at 2011-05-19 20:32:37 -0500
+  Processing by ImagesController#index as HTML
+  [1m[35mImage Load (2.2ms)[0m  SELECT "images".* FROM "images"
+Rendered shared/_header.html.erb (1.2ms)
+Rendered shared/_footer.html.erb (0.3ms)
+Rendered images/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 24ms (Views: 10.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/images/new" for 127.0.0.1 at 2011-05-19 20:32:42 -0500
+  Processing by ImagesController#new as HTML
+Rendered collection (0.0ms)
+Rendered images/_form.html.erb (9.3ms)
+Rendered shared/_header.html.erb (1.2ms)
+Rendered shared/_footer.html.erb (0.3ms)
+Rendered images/new.html.erb within layouts/application (16.8ms)
+Completed 200 OK in 35ms (Views: 21.3ms | ActiveRecord: 0.0ms)
+Exiting
