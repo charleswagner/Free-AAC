@@ -19,27 +19,27 @@ var soundManager = null;
 
 function SoundManager(smURL, smID) {
 
-  this.flashVersion = 8; // version of flash to require, either 8 or 9. Some API features require Flash 9.
-  this.debugMode = true; // enable debugging output (div#soundmanager-debug, OR console if available+configured)
-  this.debugFlash = false; // enable debugging output inside SWF, troubleshoot Flash/browser issues
-  this.useConsole = true; // use firebug/safari console.log()-type debug console if available
-  this.consoleOnly = false; // if console is being used, do not create/write to #soundmanager-debug
-  this.waitForWindowLoad = false; // force SM2 to wait for window.onload() before trying to call soundManager.onload()
-  this.nullURL = 'about:blank'; // path to "null" (empty) MP3 file, used to unload sounds (Flash 8 only)
-  this.allowPolling = true; // allow flash to poll for status update (required for whileplaying() events, peak, sound spectrum functions to work.)
-  this.useFastPolling = false; // uses lower flash timer interval for higher callback frequency, best combined with useHighPerformance
-  this.useMovieStar = true; // enable support for Flash 9.0r115+ (codename "MovieStar") MPEG4 audio formats (AAC, M4V, FLV, MOV etc.)
-  this.bgColor = '#ffffff'; // movie (.swf) background color, eg. '#000000'
-  this.useHighPerformance = false; // position:fixed flash movie can help increase js/flash speed, minimize lag
-  this.flashPollingInterval = null; // msec for polling interval. Defaults to 50 unless useFastPolling = true.
-  this.flashLoadTimeout = 1000; // msec to wait for flash movie to load before failing (0 = infinity)
-  this.wmode = null; // string: flash rendering mode - null, transparent, opaque (last two allow layering of HTML on top)
+  this.flashVersion = 8;             // version of flash to require, either 8 or 9. Some API features require Flash 9.
+  this.debugMode = true;             // enable debugging output (div#soundmanager-debug, OR console if available+configured)
+  this.debugFlash = false;           // enable debugging output inside SWF, troubleshoot Flash/browser issues
+  this.useConsole = true;            // use firebug/safari console.log()-type debug console if available
+  this.consoleOnly = false;          // if console is being used, do not create/write to #soundmanager-debug
+  this.waitForWindowLoad = false;    // force SM2 to wait for window.onload() before trying to call soundManager.onload()
+  this.nullURL = 'about:blank';      // path to "null" (empty) MP3 file, used to unload sounds (Flash 8 only)
+  this.allowPolling = true;          // allow flash to poll for status update (required for whileplaying() events, peak, sound spectrum functions to work.)
+  this.useFastPolling = false;       // uses lower flash timer interval for higher callback frequency, best combined with useHighPerformance
+  this.useMovieStar = true;          // enable support for Flash 9.0r115+ (codename "MovieStar") MPEG4 audio formats (AAC, M4V, FLV, MOV etc.)
+  this.bgColor = '#ffffff';          // movie (.swf) background color, eg. '#000000'
+  this.useHighPerformance = false;   // position:fixed flash movie can help increase js/flash speed, minimize lag
+  this.flashPollingInterval = null;  // msec for polling interval. Defaults to 50 unless useFastPolling = true.
+  this.flashLoadTimeout = 1000;      // msec to wait for flash movie to load before failing (0 = infinity)
+  this.wmode = null;                 // string: flash rendering mode - null, transparent, opaque (last two allow layering of HTML on top)
   this.allowScriptAccess = 'always'; // for scripting the SWF (object/embed property), either 'always' or 'sameDomain'
-  this.useFlashBlock = false; // *requires flashblock.css, see demos* - allow recovery from flash blockers. Wait indefinitely and apply timeout CSS to SWF, if applicable.
-  this.useHTML5Audio = false; // Beta feature: Use HTML5 Audio() where API is supported (most Safari, Chrome versions), Firefox (no MP3/MP4.) Ideally, transparent vs. Flash API where possible.
-  this.html5Test = /^probably$/i; // HTML5 Audio().canPlayType() test. /^(probably|maybe)$/i if you want to be more liberal/risky.
-  this.useGlobalHTML5Audio = true; // (experimental) if true, re-use single HTML5 audio object across all sounds. Enabled by default on mobile devices/iOS.
-  this.requireFlash = false; // (experimental) if true, prevents "HTML5-only" mode when flash present. Allows flash to handle RTMP/serverURL, but HTML5 for other cases
+  this.useFlashBlock = false;        // *requires flashblock.css, see demos* - allow recovery from flash blockers. Wait indefinitely and apply timeout CSS to SWF, if applicable.
+  this.useHTML5Audio = false;        // Beta feature: Use HTML5 Audio() where API is supported (most Safari, Chrome versions), Firefox (no MP3/MP4.) Ideally, transparent vs. Flash API where possible.
+  this.html5Test = /^probably$/i;    // HTML5 Audio().canPlayType() test. /^(probably|maybe)$/i if you want to be more liberal/risky.
+  this.useGlobalHTML5Audio = true;   // (experimental) if true, re-use single HTML5 audio object across all sounds. Enabled by default on mobile devices/iOS.
+  this.requireFlash = false;         // (experimental) if true, prevents "HTML5-only" mode when flash present. Allows flash to handle RTMP/serverURL, but HTML5 for other cases
 
   this.audioFormats = {
     // determines HTML5 support, flash requirements
@@ -65,48 +65,48 @@ function SoundManager(smURL, smID) {
   };
 
   this.defaultOptions = {
-    'autoLoad': false, // enable automatic loading (otherwise .load() will be called on demand with .play(), the latter being nicer on bandwidth - if you want to .load yourself, you also can)
-    'stream': true, // allows playing before entire file has loaded (recommended)
-    'autoPlay': false, // enable playing of file as soon as possible (much faster if "stream" is true)
-    'loops': 1, // how many times to repeat the sound (position will wrap around to 0, setPosition() will break out of loop when >0)
-    'onid3': null, // callback function for "ID3 data is added/available"
-    'onload': null, // callback function for "load finished"
-    'whileloading': null, // callback function for "download progress update" (X of Y bytes received)
-    'onplay': null, // callback for "play" start
-    'onpause': null, // callback for "pause"
-    'onresume': null, // callback for "resume" (pause toggle)
-    'whileplaying': null, // callback during play (position update)
-    'onstop': null, // callback for "user stop"
-    'onfailure': null, // callback function for when playing fails
-    'onfinish': null, // callback function for "sound finished playing"
-    'onbeforefinish': null, // callback for "before sound finished playing (at [time])"
-    'onbeforefinishtime': 5000, // offset (milliseconds) before end of sound to trigger beforefinish (eg. 1000 msec = 1 second)
+    'autoLoad': false,             // enable automatic loading (otherwise .load() will be called on demand with .play(), the latter being nicer on bandwidth - if you want to .load yourself, you also can)
+    'stream': true,                // allows playing before entire file has loaded (recommended)
+    'autoPlay': false,             // enable playing of file as soon as possible (much faster if "stream" is true)
+    'loops': 1,                    // how many times to repeat the sound (position will wrap around to 0, setPosition() will break out of loop when >0)
+    'onid3': null,                 // callback function for "ID3 data is added/available"
+    'onload': null,                // callback function for "load finished"
+    'whileloading': null,          // callback function for "download progress update" (X of Y bytes received)
+    'onplay': null,                // callback for "play" start
+    'onpause': null,               // callback for "pause"
+    'onresume': null,              // callback for "resume" (pause toggle)
+    'whileplaying': null,          // callback during play (position update)
+    'onstop': null,                // callback for "user stop"
+    'onfailure': null,             // callback function for when playing fails
+    'onfinish': null,              // callback function for "sound finished playing"
+    'onbeforefinish': null,        // callback for "before sound finished playing (at [time])"
+    'onbeforefinishtime': 5000,    // offset (milliseconds) before end of sound to trigger beforefinish (eg. 1000 msec = 1 second)
     'onbeforefinishcomplete': null,// function to call when said sound finishes playing
-    'onjustbeforefinish': null, // callback for [n] msec before end of current sound
+    'onjustbeforefinish': null,    // callback for [n] msec before end of current sound
     'onjustbeforefinishtime': 200, // [n] - if not using, set to 0 (or null handler) and event will not fire.
-    'multiShot': true, // let sounds "restart" or layer on top of each other when played multiple times, rather than one-shot/one at a time
-    'multiShotEvents': false, // fire multiple sound events (currently onfinish() only) when multiShot is enabled
-    'position': null, // offset (milliseconds) to seek to within loaded sound data.
-    'pan': 0, // "pan" settings, left-to-right, -100 to 100
-    'type': null, // MIME-like hint for file pattern / canPlay() tests, eg. audio/mp3
-    'usePolicyFile': false, // enable crossdomain.xml request for audio on remote domains (for ID3/waveform access)
-    'volume': 100 // self-explanatory. 0-100, the latter being the max.
+    'multiShot': true,             // let sounds "restart" or layer on top of each other when played multiple times, rather than one-shot/one at a time
+    'multiShotEvents': false,      // fire multiple sound events (currently onfinish() only) when multiShot is enabled
+    'position': null,              // offset (milliseconds) to seek to within loaded sound data.
+    'pan': 0,                      // "pan" settings, left-to-right, -100 to 100
+    'type': null,                  // MIME-like hint for file pattern / canPlay() tests, eg. audio/mp3
+    'usePolicyFile': false,        // enable crossdomain.xml request for audio on remote domains (for ID3/waveform access)
+    'volume': 100                  // self-explanatory. 0-100, the latter being the max.
   };
 
-  this.flash9Options = { // flash 9-only options, merged into defaultOptions if flash 9 is being used
-    'isMovieStar': null, // "MovieStar" MPEG4 audio mode. Null (default) = auto detect MP4, AAC etc. based on URL. true = force on, ignore URL
-    'usePeakData': false, // enable left/right channel peak (level) data
+  this.flash9Options = {      // flash 9-only options, merged into defaultOptions if flash 9 is being used
+    'isMovieStar': null,      // "MovieStar" MPEG4 audio mode. Null (default) = auto detect MP4, AAC etc. based on URL. true = force on, ignore URL
+    'usePeakData': false,     // enable left/right channel peak (level) data
     'useWaveformData': false, // enable sound spectrum (raw waveform data) - WARNING: CPU-INTENSIVE: may set CPUs on fire.
-    'useEQData': false, // enable sound EQ (frequency spectrum data) - WARNING: Also CPU-intensive.
-    'onbufferchange': null, // callback for "isBuffering" property change
-    'ondataerror': null // callback for waveform/eq data access error (flash playing audio in other tabs/domains)
+    'useEQData': false,       // enable sound EQ (frequency spectrum data) - WARNING: Also CPU-intensive.
+    'onbufferchange': null,   // callback for "isBuffering" property change
+    'ondataerror': null       // callback for waveform/eq data access error (flash playing audio in other tabs/domains)
   };
 
   this.movieStarOptions = { // flash 9.0r115+ MPEG4 audio options, merged into defaultOptions if flash 9+movieStar mode is enabled
-    'bufferTime': 3, // seconds of data to buffer before playback begins (null = flash default of 0.1 seconds - if AAC playback is gappy, try increasing.)
-    'serverURL': null, // rtmp: FMS or FMIS server to connect to, required when requesting media via RTMP or one of its variants
-    'onconnect': null, // rtmp: callback for connection to flash media server
-    'duration': null // rtmp: song duration (msec)
+    'bufferTime': 3,        // seconds of data to buffer before playback begins (null = flash default of 0.1 seconds - if AAC playback is gappy, try increasing.)
+    'serverURL': null,      // rtmp: FMS or FMIS server to connect to, required when requesting media via RTMP or one of its variants
+    'onconnect': null,      // rtmp: callback for connection to flash media server
+    'duration': null        // rtmp: song duration (msec)
   };
 
   this.version = null;
@@ -185,7 +185,7 @@ function SoundManager(smURL, smID) {
   // --- private SM2 internals ---
 
   var SMSound,
-  _s = this, _sm = 'soundManager', _smc = _sm+'::', _h5 = 'HTML5::', _id, _ua = navigator.userAgent, _win = window, _wl = _win.location.href.toString(), _fV = this.flashVersion, _doc = document, _doNothing, _init, _on_queue = [], _debugOpen = true, _debugTS, _didAppend = false, _appendSuccess = false, _didInit = false, _disabled = false, _windowLoaded = false, _wDS, _wdCount = 0, _initComplete, _mixin, _addOnEvent, _processOnEvents, _initUserOnload, _go, _delayWaitForEI, _waitForEI, _setVersionInfo, _handleFocus, _beginInit, _strings, _initMovie, _dcLoaded, _didDCLoaded, _getDocument, _createMovie, _die, _setPolling, _debugLevels = ['log', 'info', 'warn', 'error'], _defaultFlashVersion = 8, _disableObject, _failSafely, _normalizeMovieURL, _oRemoved = null, _oRemovedHTML = null, _str, _flashBlockHandler, _getSWFCSS, _toggleDebug, _loopFix, _policyFix, _complain, _idCheck, _waitingForEI = false, _initPending = false, _smTimer, _onTimer, _startTimer, _stopTimer, _needsFlash = null, _featureCheck, _html5OK, _html5Only = false, _html5CanPlay, _html5Ext, _dcIE, _testHTML5, _event, _slice = Array.prototype.slice, _useGlobalHTML5Audio = false, _hasFlash, _detectFlash, _badSafariFix,
+  _s = this, _sm = 'soundManager', _smc = _sm+'::', _h5 = 'HTML5::', _id, _ua = navigator.userAgent, _win = window, _wl = _win.location.href.toString(), _fV = this.flashVersion, _doc = document, _doNothing, _init, _on_queue = [], _debugOpen = true, _debugTS, _didAppend = false, _appendSuccess = false, _didInit = false, _disabled = false, _windowLoaded = false, _wDS, _wdCount = 0, _initComplete, _mixin, _addOnEvent, _processOnEvents, _initUserOnload, _go, _delayWaitForEI, _waitForEI, _setVersionInfo, _handleFocus, _beginInit, _strings, _initMovie, _dcLoaded, _didDCLoaded, _getDocument, _createMovie, _die, _setPolling, _debugLevels = ['log', 'info', 'warn', 'error'], _defaultFlashVersion = 8, _disableObject, _failSafely, _normalizeMovieURL, _oRemoved = null, _oRemovedHTML = null, _str, _flashBlockHandler, _getSWFCSS, _toggleDebug, _loopFix, _policyFix, _complain, _idCheck, _waitingForEI = false, _initPending = false, _smTimer, _onTimer, _startTimer, _stopTimer, _needsFlash = null, _featureCheck, _html5OK, _html5Only = false, _html5CanPlay, _html5Ext,  _dcIE, _testHTML5, _event, _slice = Array.prototype.slice, _useGlobalHTML5Audio = false, _hasFlash, _detectFlash, _badSafariFix,
   _is_pre = _ua.match(/pre\//i), _is_iDevice = _ua.match(/(ipad|iphone|ipod)/i), _isMobile = (_ua.match(/mobile/i) || _is_pre || _is_iDevice), _isIE = _ua.match(/msie/i), _isWebkit = _ua.match(/webkit/i), _isSafari = (_ua.match(/safari/i) && !_ua.match(/chrome/i)), _isOpera = (_ua.match(/opera/i)),
   _isBadSafari = (!_wl.match(/usehtml5audio/i) && !_wl.match(/sm2\-ignorebadua/i) && _isSafari && _ua.match(/OS X 10_6_([3-9])/i)), // Safari 4 and 5 occasionally fail to load/play HTML5 audio on Snow Leopard due to bug(s) in QuickTime X and/or other underlying frameworks. :/ Known Apple "radar" bug. https://bugs.webkit.org/show_bug.cgi?id=32159
   _hasConsole = (typeof console !== 'undefined' && typeof console.log !== 'undefined'), _isFocused = (typeof _doc.hasFocus !== 'undefined'?_doc.hasFocus():null), _tryInitOnFocus = (typeof _doc.hasFocus === 'undefined' && _isSafari), _okToDisable = !_tryInitOnFocus;
@@ -1119,7 +1119,7 @@ function SoundManager(smURL, smID) {
       }
       // Streams will pause when their buffer is full if they are being loaded.
       // In this case paused is true, but the song hasn't started playing yet. If
-      // we just call resume() the onplay() callback will never be called. So
+      // we just call resume() the onplay() callback will never be called.  So
       // only call resume() if the position is > 0.
       // Another reason is because options like volume won't have been applied yet.
       if (_t.paused && _t.position && _t.position > 0) { // https://gist.github.com/37b17df75cc4d7a90bf6
@@ -1277,7 +1277,7 @@ function SoundManager(smURL, smID) {
     // We need to make sure that the playState is set to 1 when these streams "resume".
     //
     // When a paused stream is resumed, we need to trigger the onplay() callback if it
-    // hasn't been called already. In this case since the sound is being played for the
+    // hasn't been called already.  In this case since the sound is being played for the
     // first time, I think it's more appropriate to call onplay() rather than onresume().
     this.resume = function() {
       if (!_t.paused) {
