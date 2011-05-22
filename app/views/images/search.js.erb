@@ -12,11 +12,11 @@ $("#image_word").val("<%= params[:word] %>");
 <% end %>
 
 $('#add_image').click(function() {
-	
+
 	$('#image_form').show();
 	$('#add_image').replaceWith("<p><span class='highlight'><%= params[:word] %></span> - <a href='#' id='change_image'>change this word</a></p>");	
 	$('#word_form').hide();
-	
+
 	$('#change_image').click(function() {
 		$('#terms_and_conditions_div').hide();
 		$('#image_form').hide();
@@ -24,11 +24,12 @@ $('#add_image').click(function() {
 		$('#word_form').show();
 		$("#images").html('');
 		$("#links").html('');
+		$('#image_requirements').show();
 	});
-	
+
 	$('#image_picture').change(function() {
 		$('#image_requirements').hide();
 	 	$('#terms_and_conditions_div').show();
 	});	
-	
+
 });

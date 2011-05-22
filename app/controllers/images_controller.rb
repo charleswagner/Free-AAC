@@ -49,8 +49,8 @@ class ImagesController < ApplicationController
   # POST /images
   # POST /images.xml
   def create
+    @images = []
     @image = Image.new(params[:image])
-
     respond_to do |format|
       if @image.save
         format.html { redirect_to(images_path, :notice => 'Image was successfully created.') }

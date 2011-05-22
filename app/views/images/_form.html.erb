@@ -1,22 +1,15 @@
+<div id="image_form">
 
-<%= form_for(@image, :html => {:multipart => true }) do |f| %>
+
 <a name="/images/new#add_image"></a>
-<h2>2) Add Your Image</h2>
+
 <div class="content">
 
-  <% if @image.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
-
-      <ul>
-      <% @image.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
 	<div id='image_requirements'>
+	
+	
+		<%= render 'errors', :f => f %>
 	
 		<h3>
 			Image requirements
@@ -37,26 +30,4 @@
   </div>
 </div>
 
-<div id="terms_and_conditions_div">
-	
-<h2>3) Terms And Conditions</h2>
-
-
-	<div class="content">
-	
-
-		<ul>
-			<li>I understand this</li>
-			<li>And that is this</li>
-			<li>When here is there</li>
-		</ul>
-
-	  	<p>
-		<%= f.check_box :terms_and_conditions %> <b>I accept the terms and conditions</b> <%= f.submit 'Submit', :disable_with => "Submitting..."%>
-		</p>
-
 </div>
-	
-	 </div>
-
-<% end %>

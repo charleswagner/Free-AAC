@@ -24,9 +24,18 @@
 		</div>
 		<div id="links"></div>
 	</div>
+<h2>2) Add Your Image</h2>
+<%= form_for(@image, :html => {:multipart => true }) do |f| %>
 
-	<div id="image_form">
-		<%= render 'form' %>
-	</div>
+	
 
+	<%= render 'form', :f => f %>
+
+	
+	<h2>3) Terms And Conditions</h2>
+	<%= render 'terms_and_conditions', :f => f %>
+
+		 
+
+<% end %>
 </div>
