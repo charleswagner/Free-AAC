@@ -1,5 +1,7 @@
 jQuery(document).ready(function() {
 			
+	$('#image_submit').attr('disabled', 'disabled');		
+			
 	// if there is a word then that means there was an error //	
 	// if there was an error repolulate form with js variables and present error //	
 		
@@ -8,6 +10,7 @@ jQuery(document).ready(function() {
 	} else {
 		$('#image_terms_and_conditions').removeAttr('checked');
 		$('#terms_and_conditions_div, #word_form').hide();
+		$('#change_image').show();
 	}
 
 	// When the user decides to add a picture //
@@ -27,7 +30,7 @@ jQuery(document).ready(function() {
 		$('#image_form, #change_image, #add_image, #current_word').hide();		
 		$('#image_submit').attr('disabled', 'disabled');
 		$('#image_terms_and_conditions').removeAttr('checked');
-		$("#word_form").show();
+		$("#word_form, #search_form").show();
 	});			
 
 	// When the user selects a picture //

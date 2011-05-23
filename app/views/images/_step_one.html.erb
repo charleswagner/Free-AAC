@@ -20,9 +20,11 @@
 			</li>
 		</ul>
 	
+		<div id="search_form">
 		<%= form_tag(search_images_path, :method => :get, :remote => true) do %>
 			<%= text_field_tag :word, params[:word] %> <%= submit_tag 'Search', :disable_with => "Searching..."%>
 		<% end %>
+		</div>
 		
 		<div id="images">
 			<%= render @images %>

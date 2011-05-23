@@ -165,6 +165,8 @@ background-color:white;
 
 input {padding:4px;}
 
-#add_image {display:none;}
+#add_image, #change_image {display:none;}
+
+#images, #search_form {display:none;}
 
 #images img {padding:5px;background-color:white;}
