@@ -51,7 +51,7 @@ ul li {
 	padding:1px 0 1px 0;
 }	
 
-img {margin:2px;border:none;}
+img {margin:0px;border:none;}
 
 a {color:yellow;}
 
@@ -127,7 +127,7 @@ input {padding:4px;}
 #contribute, #see_how_it_works  {
 	margin-top:10px;
 	background-color:#6983bc;
-	padding:10px;
+	padding:5px;
 }
 
 #see_how_it_works  {
@@ -164,4 +164,5 @@ input {padding:4px;}
 
 #images img {padding:5px;background-color:white;}
 
-.image {background-color:white;padding:2px;border:2px solid black;}
+.image {background-color:white;padding:2px;border:3px solid black;float:left;margin:1px;}
+
