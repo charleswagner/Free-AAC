@@ -1,10 +1,20 @@
 jQuery(document).ready(function() {
 	
+	//Attempt to fix iPad click function issue
+	//http://www.danwellman.co.uk/fixing-jquery-click-events-for-the-ipad/ 
+
+	var ua = navigator.userAgent,
+	event = (ua.match(/iPad/i)) ? "touchstart" : "click";
+
+	//preload sounds
+	
 	$('.image').each(function(index) {
 		soundPlay(this.id, false)
 	});
 
-	$('.image').click(function(){
+	//play sound
+
+	$('.image').bind(event, function(e){
 		soundPlay(this.id, true);
 	})
 
