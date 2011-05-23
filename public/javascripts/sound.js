@@ -1,5 +1,7 @@
 jQuery(document).ready(function() {
 	
+	var audio = undefined;
+
 	//Attempt to fix iPad click function issue
 	//http://www.danwellman.co.uk/fixing-jquery-click-events-for-the-ipad/ 
 
@@ -15,12 +17,11 @@ jQuery(document).ready(function() {
 	//play sound
 	
 	$('.image').bind(event, function(e){
-		var audio = new Audio("/sounds/"+ this.id + ".mp3");
-		audio.play();
+		if (audio == undefined) {
+			var audio = new Audio("/sounds/"+ this.id + ".mp3");			
+		}
+		audio.play();		
 	})
-	
-	
-	
 
 	//http://stackoverflow.com/questions/187098/cross-platform-cross-browser-way-to-play-sound-from-javascript//
 	//======================================================================
