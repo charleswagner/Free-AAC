@@ -8,6 +8,7 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type="text/javascript"></script>
 	<%= javascript_include_tag 'jquery.rails.js' %>
 	<%= javascript_include_tag 'contribute' if params[:action] == 'new' || params[:action] == 'create'%>
+	<%= javascript_include_tag 'soundmanager' if params[:action] == 'index' %>
 	<%= javascript_include_tag 'sound' if params[:action] == 'index' %>
 
 	<script type='text/javascript'>
