@@ -29,7 +29,7 @@ class ImagesController < ApplicationController
     @image = Image.new(params[:image])
     respond_to do |format|
       if @image.save
-        format.html { redirect_to(images_path, :notice => 'Image was successfully created.') }
+        format.html { redirect_to(images_path, :notice => "Your image was added. <a href='/images/new'>Add another image.</a>".html_safe) }
       else
         format.html { render :action => "new" }
       end

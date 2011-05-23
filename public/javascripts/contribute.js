@@ -1,6 +1,7 @@
 jQuery(document).ready(function() {
-	
-	$("#add_image").hide();	
+			
+	// if there is a word then that means there was an error //	
+	// if there was an error repolulate form with js variables and present error //	
 		
 	if (word == undefined) {
 		$("#change_image, #terms_and_conditions_div, #image_form").hide();
@@ -9,28 +10,34 @@ jQuery(document).ready(function() {
 		$('#terms_and_conditions_div, #word_form').hide();
 	}
 
+	// When the user decides to add a picture //
+
 	$('#add_image').click(function() {
-		$('#current_word').html(word).show();
+		$('#current_word').html(word);
 		$("#add_image, #word_form").hide();
-		$("#change_image, #image_requirements").show();
-		$('#image_requirements, #image_form').show();		
+		$("#change_image, #image_requirements, #image_requirements, #image_form, #current_word").show();
 	})
 	
+	// When the user changes the word to add //
+
 	$('#change_image').click(function() {
 		$("#images, #current_word").html("");
 		$('#word, #image_picture').val("");
-		$("#add_image, #word_form").show();
-		$('#image_requirements, #error_explanation, #terms_and_conditions_div, #image_form, #change_image, #add_image, #current_word').hide();		
+		$('#image_requirements, #error_explanation, #terms_and_conditions_div').hide();		
+		$('#image_form, #change_image, #add_image, #current_word').hide();		
 		$('#image_submit').attr('disabled', 'disabled');
-		$('#image_terms_and_conditions').removeAttr('checked')
+		$('#image_terms_and_conditions').removeAttr('checked');
+		$("#word_form").show();
 	});			
+
+	// When the user selects a picture //
 	
 	$('#image_picture').change(function() {
 		$('#image_requirements').hide();
 	 	$('#terms_and_conditions_div').show();
 	});
 	
-	// Disable this and check when Internet is up //
+	// Disable submit if user has not agreed to terms and conditions //
 	
 	$('#image_terms_and_conditions').click(function() {
 		if ($('#image_terms_and_conditions').attr('checked')) {

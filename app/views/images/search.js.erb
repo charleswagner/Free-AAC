@@ -3,6 +3,8 @@ var word = '<%= params[:word] %>';
 $("#image_word").val("<%= params[:word] %>");
 $("#add_image").show();
 
+// Populate #images div with appropiate response //
+
 <% if @images.blank? %>
 	$("#images").append("<p>Looks like no images have been added for <span class='highlight'> "+ word +" </span></p>");
 <% else %>
