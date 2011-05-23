@@ -1,6 +1,7 @@
 jQuery(document).ready(function() {
 			
-	$('#image_submit').attr('disabled', 'disabled');		
+	$('#image_submit').attr('disabled', 'disabled');
+	$('#search_form').show();		
 			
 	// if there is a word then that means there was an error //	
 	// if there was an error repolulate form with js variables and present error //	

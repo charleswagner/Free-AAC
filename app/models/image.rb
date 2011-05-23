@@ -4,12 +4,8 @@ class Image < ActiveRecord::Base
 
   has_attached_file :picture, 
                     :styles => {
-                                #should pick just a few so process is faster
-                                :xlarge => "400x400>",
-                                :large => "300x300>",
-                                :medium => "200x200>",
-                                :small => "100x100>",
-                                :thumbnail => "50x50>"
+                                :large => "400x400",
+                                :small => "150x150"
                                 },
                     :storage => :s3, 
                     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",

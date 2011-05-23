@@ -24,9 +24,7 @@ body {
 
 #body {
    padding-bottom:90px;   /* Height of the footer */
-
 }
-
 
 #footer {
 	text-align:center;
@@ -118,6 +116,7 @@ background-color:white;
   list-style: square;
 }
 
+input {padding:4px;}
 
 #start {
 	margin-top:10px;
@@ -130,6 +129,7 @@ background-color:white;
 	margin-top:10px;
 	background-color:#6983bc;
 	padding:10px;
+	font-size:25px;
 }
 
 #home {
@@ -145,28 +145,19 @@ background-color:white;
 	padding:10px;
  	margin:10px 0 10px 0;
 }
-
-.big_input {
-	font-size:20px;
-	padding:4px;
-	}
 	
 .center {
 	text-align:center;
 	width:900px;
 	margin:auto;
-	}
+}
 	
-	
-#current_word {display:none;}	
-
-
 .highlight {background-color:#6983bc;color:black;padding:4px;font-weight:bold;}
-
-input {padding:4px;}
 
 #add_image, #change_image {display:none;}
 
-#images, #search_form {display:none;}
+#current_word {display:none;}	
+
+#search_form {display:none;}
 
 #images img {padding:5px;background-color:white;}
