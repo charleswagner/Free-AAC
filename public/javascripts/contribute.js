@@ -2,7 +2,7 @@ jQuery(document).ready(function() {
 	
 	if (word == undefined) {
 		$('#terms_and_conditions_div').hide();
-		$('#image_form').hide();
+		$('#image_form').hide();	
 	} else {
 		$('#image_terms_and_conditions').removeAttr('checked');
 		$('#terms_and_conditions_div').hide();
@@ -10,6 +10,8 @@ jQuery(document).ready(function() {
 		$('#word_form').hide();
 		
 		$('#change_image').click(function() {
+			$('#word').val('');
+			$('#error_explanation').hide();
 			$('#terms_and_conditions_div').hide();
 			$('#image_form').hide();
 			$("#image_picture").val("");

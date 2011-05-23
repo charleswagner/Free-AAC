@@ -1,41 +1,25 @@
 <div id="contribute">
-<h1>Contribute</h1>
+
+	<h1>
+		Contribute
+	</h1>
+
 	<p>
 		Contributing to FreeACC.org as an artist is easy. By uploading images which express words and ideas you help others express themselves.
 	</p>
-<h2>1) What is the word for the image you want to contribute?</h2>
-	<div class="content">
-		<div id="word_form">
-			<h3>
-				Tips for your word and image.
-			</h3>
-			<ul>
-				<li>Is it universal (will everyone understand)?</li>
-				<li>Is it simple (will others understand it right away)?</li>
-				<li>Is it appropriate for all ages? </li>
-			</ul>
-			<%= form_tag(search_images_path, :method => :get, :remote => true) do %>
-				<%= text_field_tag :word, params[:word] %>
-				<%= submit_tag 'Search', :disable_with => "Searching..."%>
-			<% end %>
-			<div id="images">
-				<%= render @images %>
-			</div>
-		</div>
-		<div id="links"></div>
-	</div>
-<h2>2) Add Your Image</h2>
-<%= form_for(@image, :html => {:multipart => true }) do |f| %>
 
+	<h2> 
+		1) What is the word for the image you want to contribute?
+	</h2>
 	
+	<%= render 'step_one' %>
 
-	<%= render 'form', :f => f %>
+	<%= form_for(@image, :html => {:multipart => true }) do |f| %>
 
+		<%= render 'step_two', :f => f %>
+
+		<%= render 'step_three', :f => f %>
+		
+	<% end %>
 	
-	<h2>3) Terms And Conditions</h2>
-	<%= render 'terms_and_conditions', :f => f %>
-
-		 
-
-<% end %>
 </div>

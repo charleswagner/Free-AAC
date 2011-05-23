@@ -1,0 +1,47 @@
+<h2>
+	2) Add your image
+</h2>
+	
+<div id="image_form">
+
+	<div class="content">
+
+		<div id='image_requirements'>
+	
+			<%= render 'errors', :f => f if @image.errors.any? %>
+	
+			<h3>
+				Image requirements
+			</h3>
+	
+			<ul>
+			
+				<li>
+					Is the file actually a picture? (pictures usually end with .jpg, .png)
+				</li>
+			
+				<li>
+					Is your picture a square? If not it wont't upload!
+				</li>
+			
+				<li>
+					Is your picture the right dimensions? (400x400 pixels)
+				</li>
+			
+				<li>
+					Is your picture the right size? (must be less than 500 kb)
+				</li>
+			
+			</ul>		
+	
+		</div>
+
+	  <div class="field">
+	
+	    <%= f.file_field :picture %> <%= f.hidden_field :word %>
+
+	  </div>
+
+	</div>
+
+</div>

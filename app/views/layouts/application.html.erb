@@ -9,19 +9,19 @@
 	<%= javascript_include_tag 'jquery.rails.js' %>
 	<%= javascript_include_tag 'contribute' %>
 
-		<script type='text/javascript'>
-			<% if @image && @image.errors.any? %>
-				var word = '<%=  @image.word %>';				
-			<% else %>
-				var word = undefined;
-			<% end %>
-		</script>
-
+	<script type='text/javascript'>
+		<% if @image && @image.errors.any? %>
+			var word = '<%=  @image.word %>';				
+		<% else %>
+			var word = undefined;
+		<% end %>
+	</script>
 
 </head>
 <body>
 	<div id="container">
 	   <%= render 'shared/header' %>
+		<%= render 'shared/notice' if flash[:notice]%>
 	   <div id="body">
 			<%= yield %>
 	   </div>

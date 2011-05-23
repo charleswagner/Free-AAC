@@ -4,6 +4,7 @@ class Image < ActiveRecord::Base
 
   has_attached_file :picture, 
                     :styles => {
+                                #should pick just a few so process is faster
                                 :xlarge => "400x400>",
                                 :large => "300x300>",
                                 :medium => "200x200>",

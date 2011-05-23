@@ -1,0 +1,40 @@
+<div class="content">
+
+	<div id="word_form">
+	
+		<h3>
+			Tips for your word and image.
+		</h3>
+	
+		<ul>
+			
+			<li>
+				Is it universal (will everyone understand)?
+			</li>
+			
+			<li>
+				Is it simple (will others understand it right away)?
+			</li>
+			
+			<li>
+				Is it appropriate for all ages? 
+			</li>
+
+		</ul>
+	
+		<%= form_tag(search_images_path, :method => :get, :remote => true) do %>
+			<%= text_field_tag :word, params[:word] %>
+			<%= submit_tag 'Search', :disable_with => "Searching..."%>
+		<% end %>
+		
+		<div id="images">
+			<%= render @images %>
+		</div>
+		
+	</div>
+	
+	<div id="links">
+		
+	</div>
+	
+</div>
