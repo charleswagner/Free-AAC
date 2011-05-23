@@ -28,7 +28,7 @@ class Image < ActiveRecord::Base
    end
    
    def square(width, height)
-     if (360..440).include?(width) && (360..440).include?(height)
+     if (350..440).include?(width) && (350..440).include?(height)
        true
      else
        false
