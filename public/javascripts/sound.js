@@ -15,6 +15,7 @@ jQuery(document).ready(function() {
 	//play sound
 
 	$('.image').bind(event, function(e){
+		alert('Touch is working.');
 		soundPlay(this.id, true);
 	})
 
