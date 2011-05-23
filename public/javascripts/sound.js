@@ -56,12 +56,10 @@ jQuery(document).ready(function() {
 		
 		if (soundManager.getSoundById(this.id)) {
 			soundManager.play(this.id);
-			
-			
 		}	else {
 			soundManager.createSound({
 			  id: this.id,
-			  url: "/sounds/"+this.id+".mp3",
+			  url: "http://charleswagner.net/speak/"+this.id+".mp3",
 			  autoLoad: true,
 			  autoPlay: true,
 			  volume: 50
