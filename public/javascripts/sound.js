@@ -16,8 +16,15 @@ jQuery(document).ready(function() {
 
 	$('.image').bind(event, function(e){
 		alert('Touch is working.');
-		soundPlay(this.id, true);
+		//soundPlay(this.id, true);
+		
+		var audio = new Audio("ruby.mp3");
+		audio.play();
+		
 	})
+	
+	
+	
 
 	//http://stackoverflow.com/questions/187098/cross-platform-cross-browser-way-to-play-sound-from-javascript//
 	//======================================================================
