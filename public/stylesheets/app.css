@@ -14,7 +14,6 @@ body {
    background-color:black;
    min-height:100%;
    position:relative;
-
 }
 
 #header {
@@ -165,4 +164,4 @@ input {padding:4px;}
 
 #images img {padding:5px;background-color:white;}
 
-.image {background-color:white;padding:2px;}
+.image {background-color:white;padding:2px;border:2px solid black;}
