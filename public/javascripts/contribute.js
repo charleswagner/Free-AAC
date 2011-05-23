@@ -12,7 +12,7 @@ jQuery(document).ready(function() {
 		$('#image_terms_and_conditions').removeAttr('checked');
 		$('#terms_and_conditions_div, #word_form').hide();
 		$('#change_image').show();
-		$('#current_word').html(word);
+		$('#current_word').html(word).show();
 	}
 
 	// When the user decides to add a picture //
