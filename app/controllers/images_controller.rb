@@ -10,7 +10,6 @@ class ImagesController < ApplicationController
     else
       @images = Image.find(:all, :conditions => ['word like ?', "%#{params[:word]}%"])
       respond_to do |format|
-        format.html # index.html.erb
         format.js
       end
     end

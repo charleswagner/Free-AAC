@@ -153,14 +153,12 @@ background-color:white;
 	margin:auto;
 	}
 	
+	
+#current_word {display:none;}	
 
 
 .highlight {background-color:#6983bc;color:black;padding:4px;font-weight:bold;}
 
-
-
 input {padding:4px;}
 
 #images img {padding:5px;background-color:white;}
-
-

@@ -7,7 +7,6 @@
 		</h3>
 	
 		<ul>
-			
 			<li>
 				Is it universal (will everyone understand)?
 			</li>
@@ -19,12 +18,10 @@
 			<li>
 				Is it appropriate for all ages? 
 			</li>
-
 		</ul>
 	
 		<%= form_tag(search_images_path, :method => :get, :remote => true) do %>
-			<%= text_field_tag :word, params[:word] %>
-			<%= submit_tag 'Search', :disable_with => "Searching..."%>
+			<%= text_field_tag :word, params[:word] %> <%= submit_tag 'Search', :disable_with => "Searching..."%>
 		<% end %>
 		
 		<div id="images">
@@ -34,7 +31,13 @@
 	</div>
 	
 	<div id="links">
-		
+		<p>
+			<%= link_to 'Add an image', "#", :id => 'add_image' %>
+			
+			<span id="current_word" class="highlight"></span>
+			
+			<%= link_to 'Change word', "#", :id => 'change_image' %>
+		</p>
 	</div>
 	
 </div>

@@ -1,36 +1,12 @@
-$('#links').html('');
-$('#images').html('');
+var word = '<%= params[:word] %>';
+
 $("#image_word").val("<%= params[:word] %>");
+$("#add_image").show();
 
 <% if @images.blank? %>
-	$("#images").append("<p>Looks like no images have been added for <span class='highlight'><%= params[:word] %></span></p>");
-	$("#links").append("<p><%= escape_javascript(link_to 'Add an image', "#", :id => 'add_image') %></p>");
+	$("#images").append("<p>Looks like no images have been added for <span class='highlight'> "+ word +" </span></p>");
 <% else %>
 	$("#images").html("<p><%= escape_javascript(render(@images)) %></p>");
 	$("#images").append("<p>Does your picture represent <b><%= params[:word]%></b> better than the latter pictures? If so go ahead and add an image.</p>");
-	$("#links").append("<p><%= escape_javascript(link_to 'Add an image', "#", :id => 'add_image') %></p>");
 <% end %>
 
-$('#add_image').click(function() {
-
-	$('#image_form').show();
-	$('#add_image').replaceWith("<p><span class='highlight'><%= params[:word] %></span> - <a href='#' id='change_image'>change this word</a></p>");	
-	$('#word_form').hide();
-
-	$('#change_image').click(function() {
-		$('#word').val('');
-		$('#terms_and_conditions_div').hide();
-		$('#image_form').hide();
-		$("#image_picture").val("");
-		$('#word_form').show();
-		$("#images").html('');
-		$("#links").html('');
-		$('#image_requirements').show();
-	});
-
-	$('#image_picture').change(function() {
-		$('#image_requirements').hide();
-	 	$('#terms_and_conditions_div').show();
-	});	
-
-});
