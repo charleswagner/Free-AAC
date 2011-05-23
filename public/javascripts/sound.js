@@ -18,8 +18,11 @@ jQuery(document).ready(function() {
 		alert('Touch is working.');
 		//soundPlay(this.id, true);
 		
-		var audio = new Audio("ruby.mp3");
+		var audio = new Audio("/sounds/ruby.mp3");
 		audio.play();
+
+
+		
 		
 	})
 	
