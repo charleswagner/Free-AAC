@@ -12,7 +12,7 @@ jQuery(document).ready(function() {
 		$('#image_terms_and_conditions').removeAttr('checked');
 		$('#terms_and_conditions_div, #word_form').hide();
 		$('#change_image').show();
-		$("#images").append("<p>Looks like no images have been added for <span class='highlight'> "+ word +" </span></p>");
+		$('#current_word').html(word);
 	}
 
 	// When the user decides to add a picture //
