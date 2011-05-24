@@ -158,6 +158,7 @@ input {padding:4px;}
 	margin-top:5px;
 	position:relative;
 	margin-left:5px;
+	color:white;
 	}
 	
 #play {
@@ -168,6 +169,7 @@ input {padding:4px;}
 	height:50px;
 	width:50px;
 	background-image:url(/images/play.jpg);
+	background-repeat:no-repeat;
 }	
 
 .content {

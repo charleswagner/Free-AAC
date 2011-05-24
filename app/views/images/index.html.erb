@@ -1,6 +1,8 @@
 <div id="contribute">
-	<% @images.each do |img| %>
-		<%= image_tag(img.picture(:small, :size => '100x100'), :id => "#{img.word}", :class => 'image')%>
-	<% end %>
-	<br style="clear:both;"/>
+	<div id="images">
+		<% @images.each do |img| %>
+			<%= image_tag(img.picture(:small, :size => '100x100'), :id => "#{img.word}", :class => 'image')%>
+		<% end %>
+		<br style="clear:both;"/>
+	</div>
 </div>

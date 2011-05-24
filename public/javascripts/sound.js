@@ -13,28 +13,16 @@ jQuery(document).ready(function() {
 		}	
 	 	//soundManager is ready to use.
 		soundManager.onload = function() {
-			//preload here?
 		}
 		//no sound support
 		soundManager.onerror = function() {
 		}
 	});
 	
-	$('.image').click(function(){
-		if (soundManager.getSoundById(this.id)) {
-			soundManager.play(this.id);
-		}	else {
-			soundManager.createSound({
-			  id: this.id,
-			  url: "http://charleswagner.net/speak/"+this.id+".mp3",
-			  autoLoad: true,
-			  autoPlay: true,
-			  volume: 50
-			});
-		}
-	})	
-	
 	$('#play').click(function(){
+		$('#play').css({'background-image' : 'url(/images/loading.gif)'})
+		$('#phrase img').fadeOut('fast');
+		
 		var spoken_phrase = "";
 		
 		$('#phrase img').each(function(index){
@@ -49,9 +37,14 @@ jQuery(document).ready(function() {
 	  		  url: "http://charleswagner.net/speak/"+spoken_phrase+".mp3",
 			  autoLoad: true,
 			  autoPlay: true,
-			  volume: 50
+			  volume: 50,
+			  afterloading: hideLoading()
 			});
 		}
 	})
+	
+	function hideLoading(){
+		$('#play').css({'background-image' : 'url(/images/play.jpg)'})
+	}
 	
 })
