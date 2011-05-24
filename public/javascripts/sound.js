@@ -1,7 +1,7 @@
 jQuery(document).ready(function() {	
 	soundManager.url = '/data/swf/';
 	soundManager.flashVersion = 9;
-	soundManager.useFlashBlock = true;
+	soundManager.useFlashBlock = false;
 	soundManager.debugMode = false;
 	$('#play').click(function(){
 		if ($('#phrase img').length > 0) {
