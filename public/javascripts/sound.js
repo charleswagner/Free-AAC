@@ -19,7 +19,7 @@ jQuery(document).ready(function() {
 		if (soundManager.getSoundById(spoken_phrase)) {
 			soundManager.play(spoken_phrase);
 		}	else {
-			soundManager.createSound({
+		soundManager.createSound({
 			  id: spoken_phrase,
 	  		  url: "http://charleswagner.net/speak/"+spoken_phrase+".mp3",
 			  autoLoad: true,
@@ -29,7 +29,7 @@ jQuery(document).ready(function() {
 			  	$('#play').css({'background-image' : 'url(/images/play.png)', 'top' : '6px', 'cursor' : 'pointer'});
 				images.remove();
 			  }
-			});
+		 	});
 		}
 	}	
 })

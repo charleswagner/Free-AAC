@@ -24,8 +24,8 @@ body {
 #header .content {
 	margin:0px;
 	padding:0px;
-	width:900px;
 	background:#505050;
+	min-width:950px;
 	}
 
 #body {
@@ -139,6 +139,7 @@ input {padding:4px;}
 
 #see_how_it_works  {
 	font-size:25px;
+	min-width:95px;
 }
 
 #home {
@@ -153,7 +154,7 @@ input {padding:4px;}
 	float:left;
 	border:2px solid black;
 	background-color:black;
-	width:650px;
+	width:700px;
 	height:62px;
 	margin-top:5px;
 	position:relative;
@@ -193,7 +194,11 @@ input {padding:4px;}
 
 #search_form {display:none;}
 
-#images img {padding:5px;background-color:white;}
+#images img {padding:5px;background-color:white;width:100px;}
+
+#images {
+	min-width:950px;
+}
 
 .image {background-color:white;padding:2px;border:3px solid black;float:left;margin:1px;}
 
