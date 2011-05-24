@@ -1,8 +1,8 @@
-<div id="contribute">
-		<div id="images">
+<div id="images" class="box-shadow">
+	
 			<% @images.each do |img| %>
 				<%= image_tag(img.picture(:small), :id => "#{img.word}", :class => 'image')%>
 			<% end %>
 			<br style="clear:both;"/>
-		</div>
+	
 </div>

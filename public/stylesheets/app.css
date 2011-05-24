@@ -7,40 +7,41 @@ body {
    margin:0;
    padding:0;
    height:100%;
+	background-color:#150517;
    -webkit-text-size-adjust: none; /* Prevent font scaling in landscape */
 }
 
 #container {
+	width:950px;
+	margin:auto;
    background-color:black;
    min-height:100%;
    position:relative;
 }
 
-#header {
-	background:#505050;
-	height:75px;
+#body {
+   padding-bottom:115px;   /* Height of the footer */
 }
 
-#header .content {
-	margin:0px;
-	padding:0px;
+#header {
 	background:#505050;
-	min-width:950px;
-	}
-
-#body {
-   padding-bottom:90px;   /* Height of the footer */
+	height:100px;
 }
 
 #footer {
-	text-align:center;
    	position:absolute;
    	bottom:0;
    	width:100%;
-   	height:80px;   /* Height of the footer */   
-	text-align:gray;
-	background:#505050;
+   	height:105px;   /* Height of the footer */   
 }
+
+#header .content, #footer .content  {
+	margin:0px;
+	padding:10px;
+	background:#505050;
+	width:930px;
+	text-align:center;
+	}
 
 p {
 	color:white;
@@ -142,37 +143,34 @@ input {padding:4px;}
 	min-width:95px;
 }
 
-#home {
-	float:right;
-}
-
 #logo {
 	float:left;
+	min-width:200px;
 }
 
 #phrase {
-	float:left;
-	border:2px solid black;
+	border:2px solid #382D2C;
 	background-color:black;
-	width:700px;
-	height:62px;
-	margin-top:5px;
+	padding:2px;
+	margin-top:3px;
+	height:68px;
 	position:relative;
-	margin-left:5px;
 	color:white;
+	width:680px;
+	float:left;
 	}
 	
-#play {
-	position:absolute;
-	right:4px;
-	top:4px;
-	height:50px;
-	width:50px;
-	background-image:url(/images/play.png);
-	background-repeat:no-repeat;
-	top:6px;
-	cursor:pointer;
-}	
+#phrase .image {
+	background-color:white;
+	width:60px;
+	border:none;
+	margin:3px;
+	filter: alpha(opacity=85); /* internet explorer */
+		-khtml-opacity: .85;      /* khtml, old safari */
+		-moz-opacity: 0.85;       /* mozilla, netscape */
+		opacity: 0.85;           /* fx, safari, opera */
+	}
+	
 
 .content {
 	background-color:#8e87ec;
@@ -194,11 +192,69 @@ input {padding:4px;}
 
 #search_form {display:none;}
 
-#images img {padding:5px;background-color:white;width:100px;}
+#images img {padding:3px;background-color:white;width:105px;}
 
 #images {
-	min-width:950px;
+
+	padding:5px;
+}
+.image {padding:1px;border:2px solid black;float:left;margin:1px;}
+
+
+#more, #back {
+	background-color:#F75D59;
+	background-image:url(/images/back.png);
+	background-repeat:no-repeat;
+	height:75px;
+	float:left;
+	width:200px;
+	margin:2px;
+	border:3px solid #150517;
+	color:black;
+	font-size:25px;
+	font-weight:bold;
+	}
+
+#more {
+	background-image:url(/images/more.png);
+	background-color:lightblue;
+}	
+
+#restart {
+	width:50px;
+	height:50px;
+	border:3px solid black;
+	background-image:url(/images/restart.png);
+	background-repeat:no-repeat;
+	float:left;
+	margin:15px 225px 0 225px;
 }
 
-.image {background-color:white;padding:2px;border:3px solid black;float:left;margin:1px;}
+#home, #play {
+	background-image:url(/images/home.png);	
+	width:75px;
+	height:75px;
+	border:3px solid black;
+	background-image:url(/images/home.png);
+	background-repeat:no-repeat;
+	float:left;
+	margin-left:70px;
+}
 
+#play {
+	margin-left:10px;
+	background-color:black;
+	background-image:url(/images/speak.png);
+}	
+
+.round_corners {
+	-moz-border-radius: 10px; /* Firefox */
+  	-webkit-border-radius: 10px; /* Safari, Chrome */
+  	border-radius: 10px; /* CSS3 */
+}
+
+.box-shadow {
+  -moz-box-shadow:inset 0 0 20px black;
+   -webkit-box-shadow:inset 0 0 20px black;
+   box-shadow:inset 0 0 20px black;
+}

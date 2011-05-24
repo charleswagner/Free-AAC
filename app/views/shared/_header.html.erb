@@ -1,20 +1,10 @@
 <div id="header">
-	<div class="content">
-
-		<div id="logo">
-			<%= link_to(image_tag('logo.png'), root_url )%>
-		</div>
-
+	<div class="content  box-shadow">
 		<div id="phrase">
-			<div id="play">
-			</div>
 		</div>
-
-		<div id="home">
-			<%= link_to(image_tag('home.png'), root_url) %>
-		</div>	
-	
+		<div id="play" class="round_corners box-shadow">
+		</div>
+		<%= link_to '<div id="home" class="round_corners box-shadow"></div>'.html_safe, root_url%>
 		<br style="clear:both;"/>
-
 	</div>
 </div>
