@@ -1,6 +1,12 @@
 <div id="contribute">
 	<% @images.each do |img| %>
-		<%= image_tag(img.picture(:small), :id => "#{img.word}", :class => 'image')%>
+		<%= image_tag(img.picture(:small, :size => '100x100'), :id => "#{img.word}", :class => 'image')%>
 	<% end %>
 	<br style="clear:both;"/>
+	
+	<% @images.each do |img| %>
+	<audio src="/sounds/<%= img.word%>.mp3" controls id="audio_<%= img.word%>"  preload="auto" autostart="true">
+		Your browser does not support the audio element.
+	</audio> <br/>
+	<% end %>
 </div>

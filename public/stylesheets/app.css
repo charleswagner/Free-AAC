@@ -17,9 +17,16 @@ body {
 }
 
 #header {
-   	padding:0 10px 0 10px;
 	background:#505050;
+	height:75px;
 }
+
+#header .content {
+	margin:0px;
+	padding:0px;
+	width:900px;
+	background:#505050;
+	}
 
 #body {
    padding-bottom:90px;   /* Height of the footer */
@@ -142,7 +149,26 @@ input {padding:4px;}
 	float:left;
 }
 
-#phrase {float:left;border:2px solid black;background-color:black;}
+#phrase {
+	float:left;
+	border:2px solid black;
+	background-color:black;
+	width:650px;
+	height:62px;
+	margin-top:5px;
+	position:relative;
+	margin-left:5px;
+	}
+	
+#play {
+	position:absolute;
+	right:4px;
+	top:4px;
+	background-color:white;
+	height:50px;
+	width:50px;
+	background-image:url(/images/play.jpg);
+}	
 
 .content {
 	background-color:#8e87ec;
