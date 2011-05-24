@@ -12,7 +12,7 @@ body {
 }
 
 #container {
-   width:1000px;
+   width:975px;
    margin:auto;
    background-color:black;
    min-height:100%;
@@ -39,7 +39,7 @@ body {
 	margin:0px;
 	padding:10px;
 	background:#505050;
-	width:980px;
+	width:955px;
 	text-align:center;
 	}
 
@@ -192,7 +192,7 @@ input {padding:4px;}
 
 #search_form {display:none;}
 
-#images img {padding:3px;background-color:white;width:105px;}
+#images img {padding:1px;background-color:white;width:88px;}
 
 #images {
 
@@ -227,7 +227,7 @@ input {padding:4px;}
 	background-image:url(/images/restart.png);
 	background-repeat:no-repeat;
 	float:left;
-	margin:0 238px 0 238px;
+	margin:0 225px 0 225px;
 }
 
 #home, #play {
@@ -238,7 +238,7 @@ input {padding:4px;}
 	background-image:url(/images/home.png);
 	background-repeat:no-repeat;
 	float:left;
-	margin-left:110px;
+	margin-left:85px;
 }
 
 #play {
