@@ -1,3 +1,5 @@
+
+
 jQuery(document).ready(function() {	
 	soundManager.url = '/data/swf/';
 	soundManager.flashVersion = 9; // optional: shiny features (default = 8)
@@ -19,8 +21,37 @@ jQuery(document).ready(function() {
 	});
 	
 	$('.image').click(function(){
-		var snd = new Audio("/sounds/" + this.id + ".mp3");
-		snd.play();
+		if (soundManager.getSoundById(this.id)) {
+			soundManager.play(this.id);
+		}	else {
+			soundManager.createSound({
+			  id: this.id,
+			  url: "http://charleswagner.net/speak/"+this.id+".mp3",
+			  autoLoad: true,
+			  autoPlay: true,
+			  volume: 50
+			});
+		}
 	})	
+	
+	$('#play').click(function(){
+		var spoken_phrase = "";
+		
+		$('#phrase img').each(function(index){
+			spoken_phrase += (" " + this.id);
+		})
+		
+		if (soundManager.getSoundById(spoken_phrase)) {
+			soundManager.play(spoken_phrase);
+		}	else {
+			soundManager.createSound({
+			  id: spoken_phrase,
+	  		  url: "http://charleswagner.net/speak/"+spoken_phrase+".mp3",
+			  autoLoad: true,
+			  autoPlay: true,
+			  volume: 50
+			});
+		}
+	})
 	
 })
