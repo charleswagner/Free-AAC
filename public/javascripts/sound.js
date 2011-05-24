@@ -42,7 +42,7 @@ jQuery(document).ready(function() {
 			  autoLoad: true,
 			  autoPlay: true,
 			  volume: 50,
-			  onfinish: function() {
+			  onload: function() {
 			  	$('#play').css({'background-image' : 'url(/images/play.png)', 'top' : '5px'});
 				$('#phrase img').remove();
 			  }
