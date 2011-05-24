@@ -19,17 +19,8 @@ jQuery(document).ready(function() {
 	});
 	
 	$('.image').click(function(){
-		if (soundManager.getSoundById(this.id)) {
-			soundManager.play(this.id);
-		}	else {
-			soundManager.createSound({
-			  id: this.id,
-			  url: "http://charleswagner.net/speak/"+this.id+".mp3",
-			  autoLoad: true,
-			  autoPlay: true,
-			  volume: 50
-			});
-		}
+		var snd = new Audio("/sounds/" + this.id + ".mp3");
+		snd.play();
 	})	
 	
 })
