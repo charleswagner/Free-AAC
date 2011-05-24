@@ -1,7 +1,7 @@
 <div id="contribute">
 	<div id="images">
 		<% @images.each do |img| %>
-			<%= image_tag(img.picture(:small, :size => '150x150'), :id => "#{img.word}", :class => 'image')%>
+			<%= image_tag(img.picture(:small), :id => "#{img.word}", :class => 'image')%>
 		<% end %>
 		<br style="clear:both;"/>
 	</div>

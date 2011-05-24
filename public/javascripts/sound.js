@@ -1,19 +1,18 @@
 jQuery(document).ready(function() {	
 	soundManager.url = '/data/swf/';
-	soundManager.flashVersion = 9; // optional: shiny features (default = 8)
-	soundManager.useFlashBlock = true; // optionally, enable when you're ready to dive in
-	soundManager.debugMode = false; // enable HTML5 audio support, iPad/iPhone will always get this.	
+	soundManager.flashVersion = 9;
+	soundManager.useFlashBlock = true;
+	soundManager.debugMode = false;
 	$('#play').click(function(){
 		if ($('#phrase img').length > 0) {
 			playPhrase();
 		}
 	})
-	
 	function playPhrase() {
 		var spoken_phrase = "";
 		var images = $('#phrase img');
 		images.fadeOut('fast')
-		$('#play').css({'top' : '15px', 'background-image' : 'url(/images/loading.gif)'})
+		$('#play').css({'top' : '15px', 'background-image' : 'url(/images/loading.gif)', 'cursor' : 'default'})
 		$('#phrase img').each(function(index){
 			spoken_phrase += (" " + this.id);
 		})
@@ -27,31 +26,12 @@ jQuery(document).ready(function() {
 			  autoPlay: true,
 			  volume: 50,
 			  whileplaying: function() {
-			  	$('#play').css({'background-image' : 'url(/images/play.png)', 'top' : '5px'});
+			  	$('#play').css({'background-image' : 'url(/images/play.png)', 'top' : '6px', 'cursor' : 'pointer'});
 				images.remove();
 			  }
 			});
 		}
 	}	
-	
-	/* 
-	
-	//soundManager.useHTML5Audio = true;
-	soundManager.onready(function(oStatus) {
-		soundManager.url = '/data/swf/';
-		if (!oStatus.success) {
-		  return false;
-		}	
-	 	//soundManager is ready to use.
-		soundManager.onload = function() {
-		}
-		//no sound support
-		soundManager.onerror = function() {
-		}
-	});
-	
-	*/
-	
 })
 
 

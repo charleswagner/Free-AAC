@@ -169,6 +169,8 @@ input {padding:4px;}
 	width:50px;
 	background-image:url(/images/play.png);
 	background-repeat:no-repeat;
+	top:6px;
+	cursor:pointer;
 }	
 
 .content {

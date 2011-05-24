@@ -3,4 +3,3 @@ jQuery(document).ready(function() {
 		$('#' + this.id).clone().css({'width' : '50px', 'height': '50px;'}).appendTo($('#phrase'));
 	})
 })
-
