@@ -165,10 +165,9 @@ input {padding:4px;}
 	position:absolute;
 	right:4px;
 	top:4px;
-	background-color:white;
 	height:50px;
 	width:50px;
-	background-image:url(/images/play.jpg);
+	background-image:url(/images/play.png);
 	background-repeat:no-repeat;
 }	
 

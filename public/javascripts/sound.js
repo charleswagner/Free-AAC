@@ -1,5 +1,3 @@
-
-
 jQuery(document).ready(function() {	
 	soundManager.url = '/data/swf/';
 	soundManager.flashVersion = 9; // optional: shiny features (default = 8)
@@ -20,15 +18,21 @@ jQuery(document).ready(function() {
 	});
 	
 	$('#play').click(function(){
-		$('#play').css({'background-image' : 'url(/images/loading.gif)'})
-		$('#phrase img').fadeOut('fast');
-		
+		if ($('#phrase img').length > 0) {
+			playPhrase();
+		}
+	})
+	
+	function playPhrase() {
 		var spoken_phrase = "";
-		
+
+		$('#phrase img').fadeOut('fast')
+		$('#play').css({'top' : '15px', 'background-image' : 'url(/images/loading.gif)'})
+
 		$('#phrase img').each(function(index){
 			spoken_phrase += (" " + this.id);
 		})
-		
+
 		if (soundManager.getSoundById(spoken_phrase)) {
 			soundManager.play(spoken_phrase);
 		}	else {
@@ -38,13 +42,13 @@ jQuery(document).ready(function() {
 			  autoLoad: true,
 			  autoPlay: true,
 			  volume: 50,
-			  afterloading: hideLoading()
+			  onfinish: function() {
+			  	$('#play').css({'background-image' : 'url(/images/play.png)', 'top' : '5px'});
+				$('#phrase img').remove();
+			  }
 			});
 		}
-	})
-	
-	function hideLoading(){
-		$('#play').css({'background-image' : 'url(/images/play.jpg)'})
 	}
+	
 	
 })
