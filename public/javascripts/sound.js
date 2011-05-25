@@ -12,7 +12,7 @@ jQuery(document).ready(function() {
 		var spoken_phrase = "";
 		var images = $('#phrase .image');
 		images.fadeOut('fast')
-		$('#play').css({'background-position' : 'center', 'background-image' : 'url(/images/loading.gif)', 'cursor' : 'default'})
+		$('#play').css({opacity : 0.3 })
 		$('#phrase .image').each(function(index){
 			spoken_phrase += (" " + this.id);
 		})
@@ -26,7 +26,7 @@ jQuery(document).ready(function() {
 			  autoPlay: true,
 			  volume: 50,
 			  whileplaying: function() {
-			  	$('#play').css({'background-image' : 'url(/images/speak.png)', 'top' : '10px', 'right' : '25px', 'cursor' : 'pointer'});
+			  	$('#play').css({opacity : 1.0 });
 				images.remove();
 			  }
 		 	});

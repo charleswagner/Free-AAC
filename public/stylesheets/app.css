@@ -12,10 +12,11 @@ body {
 }
 
 #container {
+	top:5%;
    width:975px;
+  height:445px;
    margin:auto;
    background-color:black;
-   min-height:100%;
    position:relative;
 }
 
@@ -141,6 +142,7 @@ input {padding:4px;}
 #see_how_it_works  {
 	font-size:25px;
 	min-width:95px;
+	padding:50px;
 }
 
 #logo {
@@ -196,13 +198,13 @@ input {padding:4px;}
 
 #search_form {display:none;}
 
-#images img {background-color:white;width:80px;}
+#images img {background-color:white;width:180px;}
 
 #images {
 
 	padding:5px;
 }
-.image {padding:6px;;float:left;margin:1px;background-color:white;
+.image {padding:4px;;float:left;margin:1px;background-color:white;
 	text-align:center;
 	margin:2px;
 	cursor:pointer;}

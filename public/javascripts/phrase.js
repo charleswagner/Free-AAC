@@ -15,9 +15,9 @@ jQuery(document).ready(function() {
 	
 	$('#restart, #home').click(function(){
 		if (this.id == 'home') {
-			$('#home').css({'background-position' : 'center', 'background-image' : 'url(/images/loading.gif)', 'cursor' : 'default'})						
+			$('#home').css({opacity : 0.3 })
 		} else {
-			$('#restart').css({'background-position' : 'center', 'background-image' : 'url(/images/loading.gif)', 'cursor' : 'default'})			
+			$('#restart').css({opacity : 0.3 })
 		}
 	})
 })

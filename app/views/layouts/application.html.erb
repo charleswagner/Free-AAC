@@ -17,6 +17,7 @@
 			<% end %>
 		</script>
 	<% end %>
+	<%= render 'shared/preload'%>
 	<%  if params[:action] == 'index'  %>
 		<%= javascript_include_tag 'soundmanager'  %>
 		<%= javascript_include_tag 'sound' %>
