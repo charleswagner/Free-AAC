@@ -1,7 +1,7 @@
 class ImagesController < ApplicationController
   
   def index
-    @images = Image.find(:all, :limit => 5)
+    @images = Image.find(:all)
   end
   
   def search

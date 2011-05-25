@@ -7,10 +7,12 @@ body {
    margin:0;
    padding:0;
    height:100%;
-	background-color:#2B1B17;
    -webkit-text-size-adjust: none; /* Prevent font scaling in landscape */
 }
 
+#main {
+		background-color:#2B1B17;
+}
 #container {
    width:975px;
   min-height:100%;

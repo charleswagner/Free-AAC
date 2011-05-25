@@ -27,16 +27,15 @@
 	<% end %>
 </head>
 <body>
-	<div id="container" class="container-shadow">  
-	 	<%= render 'shared/header' %>
-		<%= render 'shared/notice' if flash[:notice]%>
-	   <div id="body">
-			<%= yield %>
-			<div style="background-color:white;">
-	<%= @users_browser %>
-			</div>
-	   </div>
-	   <%= render 'shared/footer' %>
+	<div id="main">
+		<div id="container" class="container-shadow">  
+		 	<%= render 'shared/header' %>
+			<%= render 'shared/notice' if flash[:notice]%>
+		   <div id="body">
+				<%= yield %>
+		   </div>
+		   <%= render 'shared/footer' %>
+		</div>
 	</div>
 </body>
 </html>
