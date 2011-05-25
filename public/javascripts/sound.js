@@ -1,4 +1,5 @@
 jQuery(document).ready(function() {	
+
 	soundManager.url = '/data/swf/';
 	soundManager.flashVersion = 9;
 	soundManager.useFlashBlock = false;
