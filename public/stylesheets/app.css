@@ -8,6 +8,7 @@ body {
    padding:0;
    height:100%;
    -webkit-text-size-adjust: none; /* Prevent font scaling in landscape */
+	background-color:#2B1B17;
 }
 
 #main {
@@ -144,6 +145,7 @@ input {padding:4px;}
 	font-size:25px;
 	min-width:95px;
 	padding:50px;
+	min-height:100%;
 }
 
 #logo {
@@ -255,7 +257,7 @@ input {padding:4px;}
 
 #play {
 	margin-left:10px;
-	background-color:lightgreen;
+	background-color:#6bf464;
 	background-image:url(/images/speak.png);
 	background-position:center;
 	cursor:pointer;
