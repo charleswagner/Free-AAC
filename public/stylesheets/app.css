@@ -8,14 +8,14 @@ body {
    padding:0;
    height:100%;
    -webkit-text-size-adjust: none; /* Prevent font scaling in landscape */
-	background-color:#2B1B17;
+	background-color:black;
 }
 
 #main {
-		background-color:#2B1B17;
+		background-color:black;
 }
 #container {
-   width:975px;
+   width:950px;
   min-height:100%;
    margin:auto;
    background-color:black;
@@ -42,7 +42,7 @@ body {
 	margin:0px;
 	padding:10px;
 	background:#505050;
-	width:955px;
+	width:930px;
 	text-align:center;
 	}
 
@@ -205,11 +205,11 @@ input {padding:4px;}
 
 #images {
 
-	padding:5px;
+	padding:5px 0 5px 0;
 }
-.image {padding:4px;;float:left;margin:1px;background-color:white;
+.image {padding:2px;;float:left;margin:1px;background-color:white;
 	text-align:center;
-	margin:2px;
+	margin:3px;
 	cursor:pointer;}
 
 
@@ -219,7 +219,7 @@ input {padding:4px;}
 	background-repeat:no-repeat;
 	height:85px;
 	float:left;
-	width:200px;
+	width:185px;
 	margin:2px;
 	border:3px solid #150517;
 	color:black;
@@ -251,21 +251,22 @@ input {padding:4px;}
 	background-image:url(/images/home.png);
 	background-repeat:no-repeat;
 	float:left;
-	margin-left:15px;
+	margin-left:5px;
 	cursor:pointer;
 }
 
 #play {
-	margin-left:10px;
+	margin-left:5px;
 	background-color:#6bf464;
 	background-image:url(/images/speak.png);
 	background-position:center;
 	cursor:pointer;
-	width:150px;
+	width:125px;
 }	
 
 #home {
 	background-color:gray;
+	margin-left:15px;
 }
 
 .round_corners {
