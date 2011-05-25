@@ -1,11 +1,11 @@
 jQuery(document).ready(function() {	
 
-	window.onorientationchange = function() {
-		alert('test')
-		//window.onorientationchange = function(resizePictures($(window).height()))
-	}	
 	resizePictures($(window).height());
 
+	window.onorientationchange = function() {
+		resizePictures($(window).height())
+	}	
+	
 	$(window).resize(function() {
 	 resizePictures($(window).height())
 	});
