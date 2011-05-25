@@ -1,9 +1,9 @@
 jQuery(document).ready(function() {	
 
-	resizePictures($(window).height());
+		resizePictures($(window).height());
 
 	window.onorientationchange = function() {
-		resizePictures($(window).height())
+		resizePictures($(document).height())
 	}	
 	
 	$(window).resize(function() {
