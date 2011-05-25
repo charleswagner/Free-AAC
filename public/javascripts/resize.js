@@ -1,14 +1,10 @@
 jQuery(document).ready(function() {	
 
-		resizePictures($(window).height());
+	resizePictures($(window).height());
 
 	window.onorientationchange = function() {
-		resizePictures($(document).height())
-		alert($(document).height());
-		alert('document.getElementById("images").clientHeight;');
+		resizePictures($(document).height());
 	}	
-	
-
 	
 	$(window).resize(function() {
 	 resizePictures($(window).height())
