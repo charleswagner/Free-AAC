@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @category.name %>
+</p>
+
+<p>
+  <b>Picture file name:</b>
+  <%= @category.picture_file_name %>
+</p>
+
+<p>
+  <b>Picture file type:</b>
+  <%= @category.picture_file_type %>
+</p>
+
+<p>
+  <b>Picture file size:</b>
+  <%= @category.picture_file_size %>
+</p>
+
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>

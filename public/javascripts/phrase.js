@@ -20,4 +20,7 @@ jQuery(document).ready(function() {
 			$('#restart').css({opacity : 0.3 })
 		}
 	})
+	
+
+	
 })

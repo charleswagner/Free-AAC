@@ -1,5 +1,7 @@
 FreeAcc::Application.routes.draw do
   
+  resources :categories
+
   resources :phrases
   resources :images do
     collection do

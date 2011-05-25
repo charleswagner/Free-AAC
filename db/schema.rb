@@ -10,27 +10,55 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110519172345) do
+ActiveRecord::Schema.define(:version => 20110525164825) do
 
-  create_table "images", :force => true do |t|
+  create_table "categories", :force => true do |t|
+    t.string   "name"
     t.string   "picture_file_name"
-    t.integer  "picture_file_size"
     t.string   "picture_file_type"
-    t.integer  "vote_count",        :default => 0
-    t.integer  "word_id"
+    t.integer  "picture_file_size"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
-    t.string   "word"
+  end
+
+  create_table "images", :force => true do |t|
+    t.string    "picture_file_name"
+    t.integer   "picture_file_size"
+    t.string    "picture_file_type"
+    t.integer   "vote_count",        :default => 0
+    t.integer   "word_id"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.integer   "user_id"
+    t.string    "word"
   end
 
   add_index "images", ["user_id"], :name => "index_images_on_user_id"
   add_index "images", ["word_id"], :name => "index_images_on_word_id"
 
+  create_table "phrase_words", :force => true do |t|
+    t.integer   "phrase_id"
+    t.integer   "word_id"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+  end
+
+  add_index "phrase_words", ["phrase_id"], :name => "index_phrase_words_on_phrase_id"
+  add_index "phrase_words", ["word_id"], :name => "index_phrase_words_on_word_id"
+
   create_table "phrases", :force => true do |t|
-    t.string   "word_ids"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "word_ids"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+  end
+
+  create_table "words", :force => true do |t|
+    t.string    "english"
+    t.string    "spanish"
+    t.string    "frequency"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.text      "published"
   end
 
 end

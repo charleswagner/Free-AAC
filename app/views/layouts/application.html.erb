@@ -9,7 +9,7 @@
   	<%= csrf_meta_tag %>
 	<%= javascript_include_tag 'jquery.js' %>
 	<%= javascript_include_tag 'jquery.rails.js' %>
-	<% javascript_include_tag 'browser.js' %>
+	<%= javascript_include_tag 'resize.js' %>
 	<%  if params[:action] == 'new' || params[:action] == 'create' %>
 		<%= javascript_include_tag 'contribute'%>
 		<script type='text/javascript'>
@@ -20,7 +20,6 @@
 			<% end %>
 		</script>
 	<% end %>
-
 	<%  if params[:action] == 'index'  %>
 		<%= javascript_include_tag 'soundmanager'  %>
 		<%= javascript_include_tag 'sound' %>

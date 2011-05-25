@@ -2,6 +2,8 @@ class Image < ActiveRecord::Base
 
   attr_accessor :terms_and_conditions
 
+  belongs_to :category
+  
   has_attached_file :picture, 
                     :styles => {
                                 :large => "400x400",
