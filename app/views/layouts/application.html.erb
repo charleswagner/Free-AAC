@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  	<title>Free ACC</title>
+  	<title>Free ACC
+	</title>
   	<%= stylesheet_link_tag 'reset' %>
   	<%= stylesheet_link_tag 'app' %>
   	<%= csrf_meta_tag %>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type="text/javascript"></script>
 	<%= javascript_include_tag 'jquery.rails.js' %>
-	<%= javascript_include_tag 'browser.js' %>
+	<% javascript_include_tag 'browser.js' %>
 	<%  if params[:action] == 'new' || params[:action] == 'create' %>
 		<%= javascript_include_tag 'contribute'%>
 		<script type='text/javascript'>
@@ -26,11 +27,14 @@
 	<% end %>
 </head>
 <body>
-	<div id="container" class="container-shadow">
-	   	<%= render 'shared/header' %>
+	<div id="container" class="container-shadow">  
+	 	<%= render 'shared/header' %>
 		<%= render 'shared/notice' if flash[:notice]%>
 	   <div id="body">
 			<%= yield %>
+			<div style="background-color:white;">
+	<%= @users_browser %>
+			</div>
 	   </div>
 	   <%= render 'shared/footer' %>
 	</div>
