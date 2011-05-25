@@ -1,9 +1,15 @@
 <div id="header">
 	<div class="content">
+	<% if params[:action] == 'index'%>
 		<div id="phrase">
 		</div>
 		<div id="play" class="round_corners box-shadow">
 		</div>
+	<% else %>
+	<a id="logo" href="">
+		<img src="/images/logo.png">	
+	</a>
+	<% end %>
 		<%= link_to '<div id="home" class="round_corners box-shadow"></div>'.html_safe, root_url%>
 		<br style="clear:both;"/>
 	</div>

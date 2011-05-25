@@ -1,5 +1,7 @@
 jQuery(document).ready(function() {	
 
+
+
 	soundManager.url = '/data/swf/';
 	soundManager.flashVersion = 9;
 	soundManager.useFlashBlock = false;
@@ -12,8 +14,7 @@ jQuery(document).ready(function() {
 	function playPhrase() {
 		var spoken_phrase = "";
 		var images = $('#phrase .image');
-		images.fadeOut('fast')
-		$('#play').css({opacity : 0.3 })
+		$('#play, #phrase .image').css({opacity : 0.3 })
 		$('#phrase .image').each(function(index){
 			spoken_phrase += (" " + this.id);
 		})
@@ -27,7 +28,7 @@ jQuery(document).ready(function() {
 			  autoPlay: true,
 			  volume: 50,
 			  whileplaying: function() {
-			  	$('#play').css({opacity : 1.0 });
+			  	$('#play, #phrase .image').css({opacity : 1.0 });
 				images.remove();
 			  }
 		 	});

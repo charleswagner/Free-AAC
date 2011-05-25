@@ -139,7 +139,7 @@ input {padding:4px;}
 #contribute, #see_how_it_works  {
 	margin-top:10px;
 	background-color:#6983bc;
-	padding:4px;
+	padding:25px;
 }
 
 #see_how_it_works  {
@@ -152,6 +152,7 @@ input {padding:4px;}
 #logo {
 	float:left;
 	min-width:200px;
+	padding-top:10px;
 }
 
 #phrase {
@@ -175,10 +176,6 @@ input {padding:4px;}
 	width:60px;
 	border:none;
 	margin:3px;
-	filter: alpha(opacity=85); /* internet explorer */
-		-khtml-opacity: .85;      /* khtml, old safari */
-		-moz-opacity: 0.85;       /* mozilla, netscape */
-		opacity: 0.85;           /* fx, safari, opera */
 	}
 #phrase .image img {width:60px;}	
 
@@ -251,7 +248,7 @@ input {padding:4px;}
 	border:3px solid black;
 	background-image:url(/images/home.png);
 	background-repeat:no-repeat;
-	float:left;
+	float:right;
 	margin-left:5px;
 	cursor:pointer;
 }
@@ -263,11 +260,12 @@ input {padding:4px;}
 	background-position:center;
 	cursor:pointer;
 	width:125px;
+	float:left;
 }	
 
 #home {
 	background-color:gray;
-	margin-left:15px;
+	margin-left:20px;
 }
 
 .round_corners {
