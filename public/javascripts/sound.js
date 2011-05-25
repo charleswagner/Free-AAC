@@ -4,16 +4,16 @@ jQuery(document).ready(function() {
 	soundManager.useFlashBlock = false;
 	soundManager.debugMode = false;
 	$('#play').click(function(){
-		if ($('#phrase img').length > 0) {
+		if ($('#phrase .image').length > 0) {
 			playPhrase();
 		}
 	})
 	function playPhrase() {
 		var spoken_phrase = "";
-		var images = $('#phrase img');
+		var images = $('#phrase .image');
 		images.fadeOut('fast')
 		$('#play').css({'background-position' : 'center', 'background-image' : 'url(/images/loading.gif)', 'cursor' : 'default'})
-		$('#phrase img').each(function(index){
+		$('#phrase .image').each(function(index){
 			spoken_phrase += (" " + this.id);
 		})
 		if (soundManager.getSoundById(spoken_phrase)) {

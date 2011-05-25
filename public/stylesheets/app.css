@@ -25,7 +25,7 @@ body {
 
 #header {
 	background:#505050;
-	height:100px;
+	height:115px;
 }
 
 #footer {
@@ -152,16 +152,20 @@ input {padding:4px;}
 	border:2px solid #382D2C;
 	background-color:black;
 	padding:2px;
+	font-size:12;
 	margin-top:3px;
-	height:68px;
+	height:84px;
 	position:relative;
 	color:white;
 	width:680px;
 	float:left;
+	font-size:12px;
 	}
 	
 #phrase .image {
+	padding:1px;
 	background-color:white;
+	color:black;
 	width:60px;
 	border:none;
 	margin:3px;
@@ -170,7 +174,7 @@ input {padding:4px;}
 		-moz-opacity: 0.85;       /* mozilla, netscape */
 		opacity: 0.85;           /* fx, safari, opera */
 	}
-	
+#phrase .image img {width:60px;}	
 
 .content {
 	background-color:#8e87ec;
@@ -192,13 +196,16 @@ input {padding:4px;}
 
 #search_form {display:none;}
 
-#images img {padding:1px;background-color:white;width:88px;}
+#images img {background-color:white;width:80px;}
 
 #images {
 
 	padding:5px;
 }
-.image {padding:1px;border:2px solid black;float:left;margin:1px;}
+.image {padding:6px;;float:left;margin:1px;background-color:white;
+	text-align:center;
+	margin:2px;
+	cursor:pointer;}
 
 
 #more, #back {
@@ -213,6 +220,7 @@ input {padding:4px;}
 	color:black;
 	font-size:25px;
 	font-weight:bold;
+	cursor:pointer;
 	}
 
 #more {
@@ -231,6 +239,7 @@ input {padding:4px;}
 }
 
 #home, #play {
+	margin-top:10px;
 	background-image:url(/images/home.png);	
 	width:75px;
 	height:75px;
@@ -239,12 +248,14 @@ input {padding:4px;}
 	background-repeat:no-repeat;
 	float:left;
 	margin-left:85px;
+	cursor:pointer;
 }
 
 #play {
 	margin-left:10px;
 	background-color:black;
 	background-image:url(/images/speak.png);
+	cursor:pointer;
 }	
 
 .round_corners {

@@ -1,8 +1,9 @@
-<div id="images" class="box-shadow">
-	
-			<% @images.each do |img| %>
-				<%= image_tag(img.picture(:small), :id => "#{img.word}", :class => 'image')%>
-			<% end %>
-			<br style="clear:both;"/>
-	
+<div id="images" class="box-shadow">	
+	<% @images.each do |img| %>
+		<div id="<%= img.word%>" class="image">
+			<%= image_tag(img.picture(:small))%> 
+			<div><%= img.word %></div>
+		</div>
+	<% end %>
+	<br style="clear:both;"/>
 </div>

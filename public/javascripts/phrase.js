@@ -5,4 +5,13 @@ jQuery(document).ready(function() {
 		}
 		return false
 	})
+	
+	$('#back').click(function(){
+		if ($('#phrase div').length > 0) {
+			$('#phrase > div:last-child').remove();
+		}
+		return false
+	})
+	
+	
 })
