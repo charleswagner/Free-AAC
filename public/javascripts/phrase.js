@@ -13,5 +13,11 @@ jQuery(document).ready(function() {
 		return false
 	})
 	
-	
+	$('#restart, #home').click(function(){
+		if (this.id == 'home') {
+			$('#home').css({'background-position' : 'center', 'background-image' : 'url(/images/loading.gif)', 'cursor' : 'default'})						
+		} else {
+			$('#restart').css({'background-position' : 'center', 'background-image' : 'url(/images/loading.gif)', 'cursor' : 'default'})			
+		}
+	})
 })
