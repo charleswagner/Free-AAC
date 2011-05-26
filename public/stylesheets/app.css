@@ -42,9 +42,8 @@ body {
 
 #header .content, #footer .content  {
 	margin:0px;
-	padding:10px;
+	padding:10px 0 10px 0;
 	background:#505050;
-	width:930px;
 	text-align:center;
 	}
 
@@ -153,16 +152,15 @@ input {padding:4px;}
 #logo {
 	float:left;
 	min-width:200px;
-	padding-top:10px;
+	padding:20px 0 0 20px;
 }
 
 #phrase {
 	border:1px solid #382D2C;
 	background-color:black;
 	padding:2px;
-	margin-top:10px;
 	margin-left:10px;
-	height:80px;
+	height:100px;
 	position:relative;
 	color:white;
 	width:790px;
@@ -214,19 +212,19 @@ input {padding:4px;}
 
 
 #more, #back {
-	background-color:#F75D59;
+	background-color:#ee6d60;
 	background-image:url(/images/back.png);
 	background-repeat:no-repeat;
-		background-position:center;
+	background-position:center;
 	height:90px;
 	float:left;
-	width:240px;
+	width:150px;
 	height:100px;
 	color:black;
 	font-size:25px;
 	font-weight:bold;
 	cursor:pointer;
-	margin:0 5px 0 0;
+	margin:0 5px 0 13px;;
 	}
 
 #more {
@@ -236,40 +234,37 @@ input {padding:4px;}
 }	
 
 #restart {
-	width:100px;
+	width:125px;
 	height:100px;
 	background-image:url(/images/restart.png);
 	background-color:#888888;
 	background-repeat:no-repeat;
 	background-position:center;
 	cursor:pointer;
-	width:100px;
 	float:left;
-	margin:0 5px 0 40px;
+	margin:0 55px 0 55px;
 }
 
 #categories {
-	width:100px;
+	width:125px;
 	height:100px;
 	background-image:url(/images/categories.png);
 	background-color:#888888;
 	background-repeat:no-repeat;
 	background-position:center;
 	cursor:pointer;
-	width:100px;
+	width:125px;;
 	float:left;
-	margin:0 40px 0 5px;
+	margin:0 55px 0 55px;
 }
 
 #home, #play {
-	width:100px;
+	width:125px;
 	height:100px;
-
 	background-image:url(/images/home.png);
 	background-repeat:no-repeat;
 	background-position:center;
 	float:right;
-	margin-left:5px;
 	cursor:pointer;
 }
 
@@ -287,13 +282,14 @@ input {padding:4px;}
 
 #home {
 	background-color:#888888;
-	margin-left:10px;
+	margin:2px;
+	margin-right:8px;
 }
 
 .round_corners {
-	-moz-border-radius: 10px; /* Firefox */
-  	-webkit-border-radius: 10px; /* Safari, Chrome */
-  	border-radius: 10px; /* CSS3 */
+	-moz-border-radius: 5px; /* Firefox */
+  	-webkit-border-radius: 5px; /* Safari, Chrome */
+  	border-radius: 5px; /* CSS3 */
 	border:1px solid black;
 }
 
@@ -304,7 +300,7 @@ input {padding:4px;}
 }
 
 .container-shadow {
-	  -moz-box-shadow: 0 10px 10px #000; /* Firefox */
-	  -webkit-box-shadow: 0 10px 10px #000; /* Safari, Chrome */
+	  -moz-box-shadow: 0 5px 10px #000; /* Firefox */
+	  -webkit-box-shadow: 0 5px 10px #000; /* Safari, Chrome */
 	  box-shadow: 0 10px 10px #000; /* CSS3 */
 }

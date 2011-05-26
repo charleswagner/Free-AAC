@@ -21,7 +21,7 @@ jQuery(document).ready(function() {
 		} else if (height > 925 & height < 1000) {
 			images.css({'width' : '115'});
 		} else if (height > 1100 & height < 1300) {
-			images.css({'width' : '125'});
+			images.css({'width' : '180'});
 		} 
 	}
 	
