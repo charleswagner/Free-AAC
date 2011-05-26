@@ -5,10 +5,7 @@ class Image < ActiveRecord::Base
   belongs_to :category
   
   has_attached_file :picture, 
-                    :styles => {
-                                :large => "400x400",
-                                :small => "150x150"
-                                },
+                    :styles => {:small => "125x125"},
                     :storage => :s3, 
                     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
                     :path => "freeacc/:attachment/:style/:id.:extension"

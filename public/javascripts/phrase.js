@@ -1,14 +1,15 @@
 jQuery(document).ready(function() {	
 	$('#images .image').click(function(){
 		if ($('#phrase img').length < 10) {
-			$('#' + this.id).clone().appendTo($('#phrase'));	
+			$('#' + this.id + ' img').clone().attr('id', this.id).css({'width' : '75px'}).appendTo($('#phrase'));	
 		}
 		return false
 	})
+
 	
 	$('#back').click(function(){
-		if ($('#phrase div').length > 0) {
-			$('#phrase > div:last-child').remove();
+		if ($('#phrase img').length > 0) {
+			$('#phrase > img:last-child').remove();
 		}
 		return false
 	})

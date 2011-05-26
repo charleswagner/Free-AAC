@@ -16,33 +16,34 @@ body {
 }
 #container {
    width:950px;
-  min-height:100%;
    margin:auto;
    background-color:black;
    position:relative;
 }
 
 #body {
-   padding-bottom:115px;   /* Height of the footer */
+   padding-bottom:125px;   /* Height of the footer */
 }
 
 #header {
-	background:gray;
-	height:115px;
+	background:#505050;
+	height:125px;
 	margin-top:10px;
+	border:1px solid #382D2C;
 }
 
 #footer {
+	border:1px solid #382D2C;
    	position:absolute;
    	bottom:0;
    	width:100%;
-   	height:115px;   /* Height of the footer */   
+   	height:120px;   /* Height of the footer */   
 }
 
 #header .content, #footer .content  {
 	margin:0px;
 	padding:10px;
-	background:gray;
+	background:#505050;
 	width:930px;
 	text-align:center;
 	}
@@ -156,28 +157,28 @@ input {padding:4px;}
 }
 
 #phrase {
-	border:2px solid #382D2C;
+	border:1px solid #382D2C;
 	background-color:black;
 	padding:2px;
-	font-size:12;
-	margin-top:3px;
-	height:84px;
+	margin-top:10px;
+	margin-left:10px;
+	height:80px;
 	position:relative;
 	color:white;
-	width:680px;
+	width:790px;
 	float:left;
 	font-size:12px;
+	text-align:left;
 	}
 	
-#phrase .image {
-	padding:1px;
+	
+#phrase img {
+	padding:0px;
 	background-color:white;
 	color:black;
-	width:60px;
 	border:none;
-	margin:3px;
+	margin:2px;
 	}
-#phrase .image img {width:60px;}	
 
 .content {
 	background-color:#8e87ec;
@@ -205,60 +206,68 @@ input {padding:4px;}
 
 	padding:5px 0 5px 0;
 }
-.image {padding:2px;;float:left;margin:1px;background-color:white;
+.image {padding:2px;float:left;margin:1px;background-color:white;
 	text-align:center;
 	margin:3px;
-	cursor:pointer;}
+	cursor:pointer;
+		font-size:10px;}
 
 
 #more, #back {
 	background-color:#F75D59;
 	background-image:url(/images/back.png);
 	background-repeat:no-repeat;
-	height:85px;
+		background-position:center;
+	height:90px;
 	float:left;
-	width:185px;
-	margin:2px;
-	border:3px solid #150517;
+	width:240px;
+	height:100px;
 	color:black;
 	font-size:25px;
 	font-weight:bold;
 	cursor:pointer;
+	margin:0 5px 0 0;
 	}
 
 #more {
 	background-image:url(/images/more.png);
 	background-color:lightblue;
+	margin:0 0 0 5px;
 }	
 
 #restart {
-	width:75px;
-	height:85px;
-	border:3px solid black;
+	width:100px;
+	height:100px;
 	background-image:url(/images/restart.png);
-	background-color:gray;
+	background-color:#888888;
 	background-repeat:no-repeat;
+	background-position:center;
+	cursor:pointer;
+	width:100px;
 	float:left;
-	margin:0 45px 0 140px;
+	margin:0 5px 0 40px;
 }
 
 #categories {
-	width:75px;
-	height:85px;
-	border:3px solid black;
+	width:100px;
+	height:100px;
 	background-image:url(/images/categories.png);
-	background-color:gray;
+	background-color:#888888;
 	background-repeat:no-repeat;
+	background-position:center;
+	cursor:pointer;
+	width:100px;
 	float:left;
-	margin:0 140px 0 45px;
+	margin:0 40px 0 5px;
 }
 
 #home, #play {
-	width:75px;
-	height:90px;
-	border:3px solid black;
+	width:100px;
+	height:100px;
+
 	background-image:url(/images/home.png);
 	background-repeat:no-repeat;
+	background-position:center;
 	float:right;
 	margin-left:5px;
 	cursor:pointer;
@@ -271,18 +280,21 @@ input {padding:4px;}
 	background-position:center;
 	cursor:pointer;
 	width:125px;
+	height:100px;
 	float:left;
+	margin:0 5px 0 5px;
 }	
 
 #home {
-	background-color:gray;
-	margin-left:20px;
+	background-color:#888888;
+	margin-left:10px;
 }
 
 .round_corners {
 	-moz-border-radius: 10px; /* Firefox */
   	-webkit-border-radius: 10px; /* Safari, Chrome */
   	border-radius: 10px; /* CSS3 */
+	border:1px solid black;
 }
 
 .box-shadow {

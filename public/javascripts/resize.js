@@ -11,19 +11,18 @@ jQuery(document).ready(function() {
 	});
 	
 	function resizePictures(height) {
-		if (height < 500 ) {
-			$('#images img').css({'width' : '85'});
-		} else if (height > 625 & height < 700)  {
-			$('#images img').css({'width' : '95'});
-		} else if (height > 725 & height < 800) {
-			$('#images img').css({'width' : '105'});
+		var images = $('#images img');
+		if (height < 700 ) {
+			images.css({'width' : '85'});
+		} else if (height < 750 & height > 700)  {
+			images.css({'width' : '95'});
 		} else if (height > 825 & height < 900) {
-			$('#images img').css({'width' : '115'});
+			images.css({'width' : '105'});
 		} else if (height > 925 & height < 1000) {
-			$('#images img').css({'width' : '125'});
+			images.css({'width' : '115'});
 		} else if (height > 1100 & height < 1300) {
-			$('#images img').css({'width' : '180'});
-		}
+			images.css({'width' : '125'});
+		} 
 	}
 	
 })
